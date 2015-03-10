@@ -38,11 +38,29 @@ class Lesson02Tests: XCTestCase {
         }
     }
     
+    let fibAdder = FibAdder()
+    
     func testFibAtIndex1() {
-        
-        // TODO get
-        //var fib1 = fibAdder(1)
-        //XCTAssert(fib1, 0)
+        XCTAssert(fibAdder.fibonacciNumberAtIndex(1) == 0, "Pass")
     }
     
+    func testFibAtIndex2() {
+        XCTAssert(fibAdder.fibonacciNumberAtIndex(2) == 1, "Pass")
+    }
+    
+    func testFibAtIndex3() {
+        XCTAssert(fibAdder.fibonacciNumberAtIndex(3) == 1, "Pass")
+    }
+    
+    func testFibAtIndex4() {
+        XCTAssert(fibAdder.fibonacciNumberAtIndex(4) == 2, "Pass")
+    }
+    
+    func testFibAtIndex5() {
+        XCTAssert(fibAdder.fibonacciNumberAtIndex(5) == 3, "Pass")
+    }
+    
+    func testFibAtIndex6() {
+        XCTAssert(fibAdder.fibonacciNumberAtIndex(6) == 5, "Pass")
+    }
 }
