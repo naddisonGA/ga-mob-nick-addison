@@ -105,13 +105,13 @@ It needs to have an image view and a dismiss button that dismisses the modal. Do
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kids2015" translatesAutoresizingMaskIntoConstraints="NO" id="1eV-4j-nVM">
-                                <rect key="frame" x="59" y="28" width="492" height="336"/>
+                                <rect key="frame" x="157" y="28" width="372" height="254"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1eV-4j-nVM" secondAttribute="height" multiplier="41:28" id="E9G-ND-qIW"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uS2-Ny-VFk">
-                                <rect key="frame" x="277" y="372" width="69" height="36"/>
+                                <rect key="frame" x="309" y="297" width="69" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Dismiss">
                                     <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -124,17 +124,17 @@ It needs to have an image view and a dismiss button that dismisses the modal. Do
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="1eV-4j-nVM" secondAttribute="trailing" constant="33" id="EOI-x9-eFs"/>
-                            <constraint firstItem="1eV-4j-nVM" firstAttribute="top" secondItem="Dp0-A0-cTQ" secondAttribute="bottom" constant="8" id="Yxb-Dk-mEE"/>
-                            <constraint firstItem="uS2-Ny-VFk" firstAttribute="centerX" secondItem="1eV-4j-nVM" secondAttribute="centerX" constant="6.5" id="afZ-S3-plf"/>
-                            <constraint firstItem="1eV-4j-nVM" firstAttribute="leading" secondItem="bbK-pd-ffX" secondAttribute="leadingMargin" constant="43" id="dcL-Pt-PTF"/>
-                            <constraint firstItem="uS2-Ny-VFk" firstAttribute="top" secondItem="1eV-4j-nVM" secondAttribute="bottom" constant="8" id="fWZ-Ds-5w5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1eV-4j-nVM" secondAttribute="trailing" constant="55" id="1or-v4-TiZ"/>
+                            <constraint firstItem="1eV-4j-nVM" firstAttribute="top" secondItem="Dp0-A0-cTQ" secondAttribute="bottom" constant="8" id="FeQ-8t-hS8"/>
+                            <constraint firstItem="uS2-Ny-VFk" firstAttribute="centerX" secondItem="1eV-4j-nVM" secondAttribute="centerX" constant="0.5" id="eaz-xG-pk6"/>
+                            <constraint firstItem="uS2-Ny-VFk" firstAttribute="top" secondItem="1eV-4j-nVM" secondAttribute="bottom" constant="15" id="tCb-Kf-arw"/>
+                            <constraint firstItem="1eV-4j-nVM" firstAttribute="leading" secondItem="bbK-pd-ffX" secondAttribute="leadingMargin" constant="141" id="tGy-7c-qVs"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GB3-qZ-Oiq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="277" y="1252"/>
+            <point key="canvasLocation" x="343" y="1252"/>
         </scene>
         <!--Array Table View Controller-->
         <scene sceneID="hS5-QX-ITe">
