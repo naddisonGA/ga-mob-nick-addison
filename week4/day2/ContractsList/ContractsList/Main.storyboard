@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0Sr-Z5-Oq6">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--Contacts Table View Controller-->
+        <scene sceneID="aLa-nK-3Fy">
+            <objects>
+                <tableViewController id="TDL-h7-vug" customClass="ContactsTableViewController" customModule="ContractsList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oRV-kI-44V">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" id="nQl-GX-Yg8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nQl-GX-Yg8" id="lsy-8n-qs4">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="9vO-l4-EUy" kind="show" identifier="showContactDetails" id="LbH-r6-f7N"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TDL-h7-vug" id="57z-28-W7z"/>
+                            <outlet property="delegate" destination="TDL-h7-vug" id="Dve-Br-923"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="U65-7w-h6v">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AUJ-yq-pll">
+                            <connections>
+                                <segue destination="9vO-l4-EUy" kind="show" identifier="addNewContact" id="Puv-Mt-Z2s"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5o-XQ-Fj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="755" y="85"/>
+        </scene>
+        <!--Contact View Controller-->
+        <scene sceneID="Pff-84-2mD">
+            <objects>
+                <viewController id="NmZ-pz-P0R" customClass="ContactViewController" customModule="ContractsList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wq5-19-31n"/>
+                        <viewControllerLayoutGuide type="bottom" id="bXs-OA-V4w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z9J-ys-MTM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="first name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OYC-at-UMZ">
+                                <rect key="frame" x="91" y="85" width="419" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rBp-FK-izl">
+                                <rect key="frame" x="91" y="135" width="419" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tze-GM-dgj">
+                                <rect key="frame" x="91" y="231" width="419" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="mobile" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VIc-lR-Lzt">
+                                <rect key="frame" x="91" y="183" width="419" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="FtK-qN-8Se">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="HQk-OE-Cif">
+                            <connections>
+                                <segue destination="aR3-GI-B3Q" kind="unwind" unwindAction="unwindToContactsTableViewController:" id="i9k-dZ-Tbb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="email" destination="tze-GM-dgj" id="hPz-b0-8Lg"/>
+                        <outlet property="firstName" destination="OYC-at-UMZ" id="I5O-eH-Rbh"/>
+                        <outlet property="lastName" destination="rBp-FK-izl" id="rXg-Du-KT1"/>
+                        <outlet property="mobile" destination="VIc-lR-Lzt" id="88V-OL-rh3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bNg-Wp-h1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="aR3-GI-B3Q" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2483" y="85"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZJr-Ry-5mH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Sr-Z5-Oq6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgF-rY-Btg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TDL-h7-vug" kind="relationship" relationship="rootViewController" id="USl-G6-EyM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Twx-on-qqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57" y="85"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mfz-SJ-fs9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9vO-l4-EUy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MMT-Y2-yDB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NmZ-pz-P0R" kind="relationship" relationship="rootViewController" id="eZT-78-ZYs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KLD-4d-cgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1671" y="85"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Puv-Mt-Z2s"/>
+    </inferredMetricsTieBreakers>
+</document>
