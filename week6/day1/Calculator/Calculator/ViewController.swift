@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // handles swipe gesture to clear the calculator
     @IBAction func handleSwipeGesture(sender: AnyObject)
     {
         calculator.reset()
@@ -32,7 +33,8 @@ class ViewController: UIViewController {
         displayField.text = "0"
     }
     
-    @IBAction func operatorButtonPressed(sender: AnyObject)
+    // handle operator buttons plus, minus, times and div
+    @IBAction func operatorButtonPressed(sender: UIButton)
     {
         let charPressed = getButtonChar(sender)
         
@@ -43,7 +45,7 @@ class ViewController: UIViewController {
         case "-":
             displayField.text = calculator.setOperation(.Minus)
             
-        case "X":
+        case "x":
             displayField.text = calculator.setOperation(.Times)
             
         case "÷":
@@ -54,23 +56,27 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func digitButton(sender: AnyObject)
+    // handle number and decimal point buttons pressed
+    @IBAction func digitButton(sender: UIButton)
     {
         let charPressed = getButtonChar(sender)
         
         displayField.text = calculator.addDigitToDisplay(charPressed)
     }
     
+    // handles the equals button being pressed
     @IBAction func equalButton(sender: AnyObject)
     {
         displayField.text = calculator.equals()
     }
     
-    func getButtonChar(sender: AnyObject) -> Character
+    // gets the first character from button title
+    func getButtonChar(buttonPressed: UIButton) -> Character
     {
-        let buttonPressed = sender as UIButton
+        let buttonTitle = buttonPressed.titleForState(.Normal)
         
-        let charPressed: Character = Array(buttonPressed.titleLabel!.text!)[0]
+        // get the first character in the String
+        let charPressed: Character = Array(buttonTitle!)[0]
         
         NSLog("pressed button = \(charPressed)")
         

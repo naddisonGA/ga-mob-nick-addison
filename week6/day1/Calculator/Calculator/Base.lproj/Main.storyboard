@@ -161,18 +161,18 @@
                                             <action selector="digitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cau-6K-fyx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFt-vD-wtx">
-                                        <rect key="frame" x="450" y="149" width="149" height="149"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqc-1e-qyD">
+                                        <rect key="frame" x="450" y="-1" width="149" height="149"/>
                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="HFt-vD-wtx" secondAttribute="height" id="BqJ-j5-yXK"/>
+                                            <constraint firstAttribute="width" secondItem="oqc-1e-qyD" secondAttribute="height" id="5C3-9U-20b"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="36"/>
                                         <state key="normal" title="÷">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="operatorButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5e1-9u-7R6"/>
+                                            <action selector="operatorButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LPI-Hy-P7s"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXu-Qp-ipr">
@@ -231,18 +231,18 @@
                                             <action selector="operatorButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pC0-09-MeI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqc-1e-qyD">
-                                        <rect key="frame" x="450" y="-1" width="149" height="149"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFt-vD-wtx">
+                                        <rect key="frame" x="450" y="149" width="149" height="149"/>
                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="oqc-1e-qyD" secondAttribute="height" id="5C3-9U-20b"/>
+                                            <constraint firstAttribute="width" secondItem="HFt-vD-wtx" secondAttribute="height" id="BqJ-j5-yXK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="36"/>
-                                        <state key="normal" title="/">
+                                        <state key="normal" title="x">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="operatorButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LPI-Hy-P7s"/>
+                                            <action selector="operatorButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5e1-9u-7R6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -328,6 +328,7 @@
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="HfJ-fc-Rzo" appends="YES" id="DI0-77-gre"/>
+                                    <outletCollection property="gestureRecognizers" destination="sR9-Si-fsx" appends="YES" id="JVJ-LJ-2eb"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -355,9 +356,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="HfJ-fc-Rzo">
+                <swipeGestureRecognizer direction="right" id="HfJ-fc-Rzo" userLabel="Right">
                     <connections>
                         <action selector="handleSwipeGesture:" destination="BYZ-38-t0r" id="SUx-X7-XwO"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="sR9-Si-fsx" userLabel="Left">
+                    <connections>
+                        <action selector="handleSwipeGesture:" destination="BYZ-38-t0r" id="llg-a4-2X5"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>

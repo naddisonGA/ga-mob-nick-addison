@@ -8,6 +8,7 @@
 
 import Foundation
 
+// calculator's allowed mathematical operations
 enum MathOperation {
     case Plus
     case Minus
@@ -15,21 +16,28 @@ enum MathOperation {
     case Div
 }
 
+// delegate class for the calculator view controller
 class Calculator
 {
     //MARK: - Private properties
     
     // private properties so they can only be mutated via the mutating functions
+    // the following hold the number currently being entered
     private var _display: String = "0"
+    // a flag to mark if the digit being added in the display is the first number or decimal point
     private var _firstDigit = true
+    // flag to mark if the number being entered is a decimal. The is to prevent multiple decimal points being entered into a number
     private var _decimalDisplay = false
     
+    // holds the last calculated value. Defaults to 0 on load
     private var _memory: Double = 0
     
+    // stores the mathimatical operation to be performed next by the calculator
     private var _operation = MathOperation.Plus
     
     //MARK: - Getters
     
+    // simple getter to the private _display property that can only be mutated by the mutating functions
     var display: String {
         // TODO add number formatting
         return _display
@@ -37,6 +45,7 @@ class Calculator
     
     //MARK: - Mutating functions
     
+    // resets the calculator to 0 with a plus operator and zero in memory
     func reset()
     {
         _display = "0"
@@ -48,20 +57,26 @@ class Calculator
         _operation = MathOperation.Plus
     }
     
+    // adds a number or decimal 
     func addDigitToDisplay(digit: Character) -> String
     {
         // if first digit of a new number has been added
         if _firstDigit
         {
-            if digit != "."
-            {
-                // set display to an empty string so when the digit is appended below the display will equal the added digit
-                _display = ""
-            }
-            else
+            if digit == "."
             {
                 // if the digit is a decimal then set to "0" so after the below append the display becomes "0."
                 _display = "0"
+            }
+            else if (digit == "0")
+            {
+                // no need to append 0 to 0
+                return "0"
+            }
+            else
+            {
+                // set display to an empty string so when the digit is appended below the display will equal the added digit
+                _display = ""
             }
         }
         
@@ -104,6 +119,7 @@ class Calculator
         return _display
     }
     
+    // performs the stored mathematical operation against the display and what is in memory
     func equals() -> String
     {
         performOperation()
@@ -154,6 +170,7 @@ class Calculator
     
     //MARK: - immutable functions
     
+    // converts a double number to string
     func formatNumber(number: Double) -> String
     {
         return String(format:"%g", number)
