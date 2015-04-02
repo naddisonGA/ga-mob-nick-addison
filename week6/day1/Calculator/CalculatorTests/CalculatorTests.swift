@@ -286,4 +286,13 @@ class CalculatorTests: XCTestCase {
         display = calculator.equals()
         XCTAssertEqual(display, "Error")
     }
+    
+    func testZeroZero()
+    {
+        var display = calculator.addDigitToDisplay("0")
+        XCTAssertEqual(display, "0")
+        
+        display = calculator.addDigitToDisplay("0")
+        XCTAssertEqual(display, "0")
+    }
 }

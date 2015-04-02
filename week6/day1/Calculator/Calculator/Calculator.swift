@@ -68,16 +68,17 @@ class Calculator
                 // if the digit is a decimal then set to "0" so after the below append the display becomes "0."
                 _display = "0"
             }
-            else if (digit == "0")
-            {
-                // no need to append 0 to 0
-                return "0"
-            }
             else
             {
                 // set display to an empty string so when the digit is appended below the display will equal the added digit
                 _display = ""
             }
+        }
+        
+        // no need to append a 0 to a 0
+        if _display == "0" && digit == "0"
+        {
+            return "0"
         }
         
         // if a decimal was entered
