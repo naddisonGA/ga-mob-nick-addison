@@ -1,45 +1,15 @@
 //
-//  BalancesTableViewController.swift
+//  TotalsTableViewController.swift
 //  ExchangeBalances
 //
-//  Created by Nicholas Addison on 7/04/2015.
+//  Created by Nicholas Addison on 8/04/2015.
 //  Copyright (c) 2015 Nicholas Addison. All rights reserved.
 //
 
 import UIKit
 
-class BalancesTableViewController: UITableViewController
-{
-//    struct Balance
-//    {
-//        var currency: String
-//        var total: Double = 0.0
-//        var available: Double = 0.0
-//    }
-//    
-//    struct Exchange {
-//        var name: String
-//        var balances = [Balance]()
-//    }
-//    
-//    var exchangeBalances = [
-//        Exchange(name: "BTC Markets",
-//            balances: [
-//                Balance(currency: "BTC", total: 5.5, available: 2.2),
-//                Balance(currency: "AUD", total: 12343.21, available: 0.01),
-//                Balance(currency: "LTC", total: 0, available: 0)
-//            ]
-//        ),
-//        
-//        Exchange(name: "Bitfinex",
-//            balances: [
-//                Balance(currency: "BTC", total: 10.12345678, available: 9.87654321),
-//                Balance(currency: "USD", total: 21456.78, available: 19876.54)
-//            ]
-//        )
-//        
-//    ]
-    
+class TotalsTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,40 +30,24 @@ class BalancesTableViewController: UITableViewController
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return exchangeBalances.count
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        
-        return exchangeBalances[section].balances.count
+        return 0
     }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCellWithIdentifier("balanceCell", forIndexPath: indexPath) as BalanceCell
 
-        let row = indexPath.row
-        
+    /*
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+
         // Configure the cell...
-        cell.currencyField.text = exchangeBalances[indexPath.section].balances[indexPath.row].currency
-        cell.totalAmountField.text = String(format:"%g", exchangeBalances[indexPath.section].balances[indexPath.row].total)
-        cell.availableAmountField.text = String(format:"%g", exchangeBalances[indexPath.section].balances[indexPath.row].available)
 
         return cell
     }
-    
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-    {
-        let  headerCell = tableView.dequeueReusableCellWithIdentifier("headerCell") as HeaderCell
-        
-        headerCell.exchangeLabel.text = exchangeBalances[section].name;
-        
-        NSLog("header lable text = \(exchangeBalances[section].name)")
-        
-        return headerCell
-    }
+    */
 
     /*
     // Override to support conditional editing of the table view.

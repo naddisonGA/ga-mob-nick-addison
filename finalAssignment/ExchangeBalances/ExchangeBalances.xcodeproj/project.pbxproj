@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01066E6E1AD505350097314E /* TotalsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01066E6D1AD505350097314E /* TotalsHeaderCell.swift */; };
+		01066E701AD505CD0097314E /* PositionsReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01066E6F1AD505CD0097314E /* PositionsReportViewController.swift */; };
+		01066E741AD5067A0097314E /* TotalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01066E731AD5067A0097314E /* TotalsTableViewController.swift */; };
+		01066E761AD5348A0097314E /* ExchangeBalances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01066E751AD5348A0097314E /* ExchangeBalances.swift */; };
+		01066E781AD537DC0097314E /* TotalsDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01066E771AD537DC0097314E /* TotalsDescriptionCell.swift */; };
+		01066E7A1AD53CA10097314E /* TotalAmounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01066E791AD53CA10097314E /* TotalAmounts.swift */; };
 		017DE1931AD3BE7900E001E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DE1921AD3BE7900E001E0 /* AppDelegate.swift */; };
 		017DE1981AD3BE7900E001E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017DE1961AD3BE7900E001E0 /* Main.storyboard */; };
 		017DE19A1AD3BE7900E001E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 017DE1991AD3BE7900E001E0 /* Images.xcassets */; };
@@ -28,6 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01066E6D1AD505350097314E /* TotalsHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsHeaderCell.swift; sourceTree = "<group>"; };
+		01066E6F1AD505CD0097314E /* PositionsReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionsReportViewController.swift; sourceTree = "<group>"; };
+		01066E731AD5067A0097314E /* TotalsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsTableViewController.swift; sourceTree = "<group>"; };
+		01066E751AD5348A0097314E /* ExchangeBalances.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeBalances.swift; sourceTree = "<group>"; };
+		01066E771AD537DC0097314E /* TotalsDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsDescriptionCell.swift; sourceTree = "<group>"; };
+		01066E791AD53CA10097314E /* TotalAmounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalAmounts.swift; sourceTree = "<group>"; };
 		017DE18D1AD3BE7900E001E0 /* ExchangeBalances.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeBalances.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		017DE1911AD3BE7900E001E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		017DE1921AD3BE7900E001E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +75,7 @@
 		017DE1841AD3BE7900E001E0 = {
 			isa = PBXGroup;
 			children = (
+				01066E731AD5067A0097314E /* TotalsTableViewController.swift */,
 				017DE1B41AD3C1C100E001E0 /* models */,
 				017DE18F1AD3BE7900E001E0 /* ExchangeBalances */,
 				017DE1A51AD3BE7900E001E0 /* ExchangeBalancesTests */,
@@ -90,6 +103,9 @@
 				017DE1991AD3BE7900E001E0 /* Images.xcassets */,
 				017DE19B1AD3BE7900E001E0 /* LaunchScreen.xib */,
 				017DE1901AD3BE7900E001E0 /* Supporting Files */,
+				01066E6D1AD505350097314E /* TotalsHeaderCell.swift */,
+				01066E771AD537DC0097314E /* TotalsDescriptionCell.swift */,
+				01066E6F1AD505CD0097314E /* PositionsReportViewController.swift */,
 			);
 			path = ExchangeBalances;
 			sourceTree = "<group>";
@@ -122,6 +138,8 @@
 		017DE1B41AD3C1C100E001E0 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				01066E751AD5348A0097314E /* ExchangeBalances.swift */,
+				01066E791AD53CA10097314E /* TotalAmounts.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -226,8 +244,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01066E781AD537DC0097314E /* TotalsDescriptionCell.swift in Sources */,
 				01E955511AD40CDD008C98F2 /* HeaderCell.swift in Sources */,
 				017DE1B31AD3BEF100E001E0 /* BalancesTableViewController.swift in Sources */,
+				01066E6E1AD505350097314E /* TotalsHeaderCell.swift in Sources */,
+				01066E701AD505CD0097314E /* PositionsReportViewController.swift in Sources */,
+				01066E741AD5067A0097314E /* TotalsTableViewController.swift in Sources */,
+				01066E7A1AD53CA10097314E /* TotalAmounts.swift in Sources */,
+				01066E761AD5348A0097314E /* ExchangeBalances.swift in Sources */,
 				017DE1B61AD3C88200E001E0 /* BalanceCell.swift in Sources */,
 				017DE1931AD3BE7900E001E0 /* AppDelegate.swift in Sources */,
 			);
