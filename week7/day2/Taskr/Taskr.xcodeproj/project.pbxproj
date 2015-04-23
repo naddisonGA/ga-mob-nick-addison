@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		011E9BDB1ADD09E800B7A6CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011E9BDA1ADD09E800B7A6CD /* AppDelegate.swift */; };
+		011E9BDE1ADD09E800B7A6CD /* Taskr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 011E9BDC1ADD09E800B7A6CD /* Taskr.xcdatamodeld */; };
+		011E9BE01ADD09E800B7A6CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011E9BDF1ADD09E800B7A6CD /* ViewController.swift */; };
+		011E9BE31ADD09E800B7A6CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011E9BE11ADD09E800B7A6CD /* Main.storyboard */; };
+		011E9BE51ADD09E800B7A6CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011E9BE41ADD09E800B7A6CD /* Images.xcassets */; };
+		011E9BE81ADD09E800B7A6CD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011E9BE61ADD09E800B7A6CD /* LaunchScreen.xib */; };
+		011E9BF41ADD09E800B7A6CD /* TaskrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011E9BF31ADD09E800B7A6CD /* TaskrTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		011E9BEE1ADD09E800B7A6CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 011E9BCD1ADD09E800B7A6CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 011E9BD41ADD09E800B7A6CD;
+			remoteInfo = Taskr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		011E9BD51ADD09E800B7A6CD /* Taskr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taskr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		011E9BD91ADD09E800B7A6CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		011E9BDA1ADD09E800B7A6CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		011E9BDD1ADD09E800B7A6CD /* Taskr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Taskr.xcdatamodel; sourceTree = "<group>"; };
+		011E9BDF1ADD09E800B7A6CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		011E9BE21ADD09E800B7A6CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		011E9BE41ADD09E800B7A6CD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		011E9BE71ADD09E800B7A6CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		011E9BED1ADD09E800B7A6CD /* TaskrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		011E9BF21ADD09E800B7A6CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		011E9BF31ADD09E800B7A6CD /* TaskrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskrTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		011E9BD21ADD09E800B7A6CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011E9BEA1ADD09E800B7A6CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		011E9BCC1ADD09E800B7A6CD = {
+			isa = PBXGroup;
+			children = (
+				011E9BD71ADD09E800B7A6CD /* Taskr */,
+				011E9BF01ADD09E800B7A6CD /* TaskrTests */,
+				011E9BD61ADD09E800B7A6CD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		011E9BD61ADD09E800B7A6CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				011E9BD51ADD09E800B7A6CD /* Taskr.app */,
+				011E9BED1ADD09E800B7A6CD /* TaskrTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		011E9BD71ADD09E800B7A6CD /* Taskr */ = {
+			isa = PBXGroup;
+			children = (
+				011E9BDA1ADD09E800B7A6CD /* AppDelegate.swift */,
+				011E9BDF1ADD09E800B7A6CD /* ViewController.swift */,
+				011E9BE11ADD09E800B7A6CD /* Main.storyboard */,
+				011E9BE41ADD09E800B7A6CD /* Images.xcassets */,
+				011E9BE61ADD09E800B7A6CD /* LaunchScreen.xib */,
+				011E9BDC1ADD09E800B7A6CD /* Taskr.xcdatamodeld */,
+				011E9BD81ADD09E800B7A6CD /* Supporting Files */,
+			);
+			path = Taskr;
+			sourceTree = "<group>";
+		};
+		011E9BD81ADD09E800B7A6CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				011E9BD91ADD09E800B7A6CD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		011E9BF01ADD09E800B7A6CD /* TaskrTests */ = {
+			isa = PBXGroup;
+			children = (
+				011E9BF31ADD09E800B7A6CD /* TaskrTests.swift */,
+				011E9BF11ADD09E800B7A6CD /* Supporting Files */,
+			);
+			path = TaskrTests;
+			sourceTree = "<group>";
+		};
+		011E9BF11ADD09E800B7A6CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				011E9BF21ADD09E800B7A6CD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		011E9BD41ADD09E800B7A6CD /* Taskr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 011E9BF71ADD09E800B7A6CD /* Build configuration list for PBXNativeTarget "Taskr" */;
+			buildPhases = (
+				011E9BD11ADD09E800B7A6CD /* Sources */,
+				011E9BD21ADD09E800B7A6CD /* Frameworks */,
+				011E9BD31ADD09E800B7A6CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Taskr;
+			productName = Taskr;
+			productReference = 011E9BD51ADD09E800B7A6CD /* Taskr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		011E9BEC1ADD09E800B7A6CD /* TaskrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 011E9BFA1ADD09E800B7A6CD /* Build configuration list for PBXNativeTarget "TaskrTests" */;
+			buildPhases = (
+				011E9BE91ADD09E800B7A6CD /* Sources */,
+				011E9BEA1ADD09E800B7A6CD /* Frameworks */,
+				011E9BEB1ADD09E800B7A6CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				011E9BEF1ADD09E800B7A6CD /* PBXTargetDependency */,
+			);
+			name = TaskrTests;
+			productName = TaskrTests;
+			productReference = 011E9BED1ADD09E800B7A6CD /* TaskrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		011E9BCD1ADD09E800B7A6CD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Nicholas Addison";
+				TargetAttributes = {
+					011E9BD41ADD09E800B7A6CD = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					011E9BEC1ADD09E800B7A6CD = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 011E9BD41ADD09E800B7A6CD;
+					};
+				};
+			};
+			buildConfigurationList = 011E9BD01ADD09E800B7A6CD /* Build configuration list for PBXProject "Taskr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 011E9BCC1ADD09E800B7A6CD;
+			productRefGroup = 011E9BD61ADD09E800B7A6CD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				011E9BD41ADD09E800B7A6CD /* Taskr */,
+				011E9BEC1ADD09E800B7A6CD /* TaskrTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		011E9BD31ADD09E800B7A6CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				011E9BE31ADD09E800B7A6CD /* Main.storyboard in Resources */,
+				011E9BE81ADD09E800B7A6CD /* LaunchScreen.xib in Resources */,
+				011E9BE51ADD09E800B7A6CD /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011E9BEB1ADD09E800B7A6CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		011E9BD11ADD09E800B7A6CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				011E9BE01ADD09E800B7A6CD /* ViewController.swift in Sources */,
+				011E9BDB1ADD09E800B7A6CD /* AppDelegate.swift in Sources */,
+				011E9BDE1ADD09E800B7A6CD /* Taskr.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011E9BE91ADD09E800B7A6CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				011E9BF41ADD09E800B7A6CD /* TaskrTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		011E9BEF1ADD09E800B7A6CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 011E9BD41ADD09E800B7A6CD /* Taskr */;
+			targetProxy = 011E9BEE1ADD09E800B7A6CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		011E9BE11ADD09E800B7A6CD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				011E9BE21ADD09E800B7A6CD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		011E9BE61ADD09E800B7A6CD /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				011E9BE71ADD09E800B7A6CD /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		011E9BF51ADD09E800B7A6CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		011E9BF61ADD09E800B7A6CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		011E9BF81ADD09E800B7A6CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Taskr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		011E9BF91ADD09E800B7A6CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Taskr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		011E9BFB1ADD09E800B7A6CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TaskrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taskr.app/Taskr";
+			};
+			name = Debug;
+		};
+		011E9BFC1ADD09E800B7A6CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TaskrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taskr.app/Taskr";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		011E9BD01ADD09E800B7A6CD /* Build configuration list for PBXProject "Taskr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				011E9BF51ADD09E800B7A6CD /* Debug */,
+				011E9BF61ADD09E800B7A6CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		011E9BF71ADD09E800B7A6CD /* Build configuration list for PBXNativeTarget "Taskr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				011E9BF81ADD09E800B7A6CD /* Debug */,
+				011E9BF91ADD09E800B7A6CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		011E9BFA1ADD09E800B7A6CD /* Build configuration list for PBXNativeTarget "TaskrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				011E9BFB1ADD09E800B7A6CD /* Debug */,
+				011E9BFC1ADD09E800B7A6CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		011E9BDC1ADD09E800B7A6CD /* Taskr.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				011E9BDD1ADD09E800B7A6CD /* Taskr.xcdatamodel */,
+			);
+			currentVersion = 011E9BDD1ADD09E800B7A6CD /* Taskr.xcdatamodel */;
+			path = Taskr.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 011E9BCD1ADD09E800B7A6CD /* Project object */;
+}
