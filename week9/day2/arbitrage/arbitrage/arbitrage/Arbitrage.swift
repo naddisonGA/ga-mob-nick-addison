@@ -22,8 +22,10 @@ class Arbitrage : PFObject, PFSubclassing
 
     @NSManaged var timestamp: NSDate!
     
-    @NSManaged var sellTrade: Trade?
-    @NSManaged var buyTrade: Trade?
+//    @NSManaged var sellTrade: Trade?
+//    @NSManaged var buyTrade: Trade?
+    @NSManaged var sellTrade: PFObject?
+    @NSManaged var buyTrade: PFObject?
     
     @NSManaged var variableExchangeRate: Double
     

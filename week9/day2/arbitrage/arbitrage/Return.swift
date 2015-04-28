@@ -10,31 +10,76 @@ import Foundation
 
 struct ArbitrageReturn
 {
-    var buyAmount: Amount
-    var sellAmount: Amount
+    var buyAmount: Amount?
+    var sellAmount: Amount?
     
     var buyToSellExchangeRate: Double
     
-    // TODO needs to return an error if assetName not in buyAmount or sellAmount
-    func amount(assetName: String) -> Double
+    func amount(assetName: String) -> Double?
     {
-        if sellAmount.assetName == assetName
+        if buyAmount == nil || sellAmount == nil
         {
-            return sellAmount.quantity - buyAmount.quantity * buyToSellExchangeRate
+            return nil
+        }
+        
+        if sellAmount!.assetName == assetName
+        {
+            return sellAmount!.quantity - buyAmount!.quantity * buyToSellExchangeRate
+        }
+        else if buyAmount!.assetName == assetName
+        {
+            return sellAmount!.quantity / buyToSellExchangeRate - buyAmount!.quantity
         }
         else
         {
-            return sellAmount.quantity / buyToSellExchangeRate - buyAmount.quantity
+            return nil
         }
     }
     
-    var decimal: Double
+    func amount(side: TradeSide) -> Double?
     {
-        return amount(buyAmount.assetName) / buyAmount.quantity
+        if buyAmount == nil || sellAmount == nil
+        {
+            return nil
+        }
+        
+        if side == .Sell
+        {
+            return sellAmount!.quantity - buyAmount!.quantity * buyToSellExchangeRate
+        }
+        else if side == .Buy
+        {
+            return sellAmount!.quantity / buyToSellExchangeRate - buyAmount!.quantity
+        }
+        else
+        {
+            return nil
+        }
     }
     
-    var percentage: Double
+    var decimal: Double?
     {
-        return decimal * 100
+        if buyAmount == nil || sellAmount == nil
+        {
+            return nil
+        }
+        
+        if let returnAmount = amount(.Buy) {
+            return returnAmount / buyAmount!.quantity
+        }
+        else
+        {
+            return nil
+        }
+    }
+    
+    var percentage: Double?
+    {
+        if let decimal = decimal {
+            return decimal * 100
+        }
+        else {
+            return nil
+        }
     }
 }

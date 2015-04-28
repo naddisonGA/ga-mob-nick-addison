@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CustomView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3B-3k-4E2" userLabel="First Custom View" customClass="CustomView" customModule="CustomView" customModuleProvider="target">
+                                <rect key="frame" x="20" y="28" width="156" height="96"/>
+                                <color key="backgroundColor" red="0.02853226691" green="1" blue="0.2153856277" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="156" id="N7g-3G-iUL"/>
+                                    <constraint firstAttribute="height" constant="96" id="wzh-hR-HA9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="first" value="1"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="second" value="2"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LyI-Fe-nNk" userLabel="Second Custom View" customClass="CustomView" customModule="CustomView" customModuleProvider="target">
+                                <rect key="frame" x="480" y="28" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="2s2-fO-y6I"/>
+                                    <constraint firstAttribute="width" constant="100" id="3Pb-JP-SXz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LyI-Fe-nNk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="BWr-Cl-3hN"/>
+                            <constraint firstItem="S3B-3k-4E2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="sSj-7h-XPo"/>
+                            <constraint firstAttribute="trailing" secondItem="LyI-Fe-nNk" secondAttribute="trailing" constant="20" symbolic="YES" id="vIN-cY-F4n"/>
+                            <constraint firstItem="S3B-3k-4E2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="yia-KI-xdi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="topLeftView" destination="S3B-3k-4E2" id="dwq-iX-Wkr"/>
+                        <outlet property="topRightView" destination="LyI-Fe-nNk" id="weU-QQ-7AR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

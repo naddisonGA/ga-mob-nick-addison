@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0109410A1AEB577100A9153A /* ReturnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010941091AEB577100A9153A /* ReturnView.xib */; };
+		0109410E1AEB6D5F00A9153A /* ReturnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0109410D1AEB6D5F00A9153A /* ReturnView.swift */; };
+		0118474F1AEA1E3F000BAC5C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0118474E1AEA1E3F000BAC5C /* Accounts.framework */; };
+		011847511AEA1E4A000BAC5C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 011847501AEA1E4A000BAC5C /* Social.framework */; };
 		01680CE41AE8753F00C4F3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01680CE31AE8753F00C4F3B7 /* AppDelegate.swift */; };
 		01680CE91AE8753F00C4F3B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01680CE71AE8753F00C4F3B7 /* Main.storyboard */; };
 		01680CEB1AE8753F00C4F3B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01680CEA1AE8753F00C4F3B7 /* Images.xcassets */; };
@@ -22,12 +26,10 @@
 		01680D121AE8773900C4F3B7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01680D111AE8773900C4F3B7 /* MobileCoreServices.framework */; };
 		01680D141AE8774900C4F3B7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01680D131AE8774900C4F3B7 /* QuartzCore.framework */; };
 		01680D161AE8775400C4F3B7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01680D151AE8775400C4F3B7 /* Security.framework */; };
-		01680D181AE8775C00C4F3B7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01680D171AE8775C00C4F3B7 /* StoreKit.framework */; };
 		01680D1A1AE8776400C4F3B7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01680D191AE8776400C4F3B7 /* SystemConfiguration.framework */; };
 		01680D1C1AE8776D00C4F3B7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01680D1B1AE8776D00C4F3B7 /* libz.dylib */; };
 		01680D1E1AE8777400C4F3B7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01680D1D1AE8777400C4F3B7 /* libsqlite3.dylib */; };
 		01680D201AE8796800C4F3B7 /* ArbitrageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01680D1F1AE8796800C4F3B7 /* ArbitrageTableViewController.swift */; };
-		01680D211AE8796800C4F3B7 /* ArbitrageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01680D1F1AE8796800C4F3B7 /* ArbitrageTableViewController.swift */; };
 		01680D231AE87B9C00C4F3B7 /* Arbitrage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01680D221AE87B9C00C4F3B7 /* Arbitrage.swift */; };
 		01680D241AE87B9C00C4F3B7 /* Arbitrage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01680D221AE87B9C00C4F3B7 /* Arbitrage.swift */; };
 		01680D261AE87E5000C4F3B7 /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01680D251AE87E5000C4F3B7 /* Trade.swift */; };
@@ -44,6 +46,9 @@
 		01680D371AE8B30B00C4F3B7 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01680D351AE8B30B00C4F3B7 /* Amount.swift */; };
 		01680D391AE8FF5F00C4F3B7 /* ArbitrageHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01680D381AE8FF5F00C4F3B7 /* ArbitrageHeaderCell.swift */; };
 		01680D3A1AE8FF5F00C4F3B7 /* ArbitrageHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01680D381AE8FF5F00C4F3B7 /* ArbitrageHeaderCell.swift */; };
+		01680D3D1AE9ECAE00C4F3B7 /* TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01680D3C1AE9ECAE00C4F3B7 /* TradeView.swift */; };
+		01680D3F1AE9ECD900C4F3B7 /* TradeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01680D3E1AE9ECD900C4F3B7 /* TradeView.xib */; };
+		017ADD361AEA68E60088B17F /* ArbitrageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ADD351AEA68E60088B17F /* ArbitrageDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		010941091AEB577100A9153A /* ReturnView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReturnView.xib; sourceTree = "<group>"; };
+		0109410D1AEB6D5F00A9153A /* ReturnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnView.swift; sourceTree = "<group>"; };
+		0118474E1AEA1E3F000BAC5C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		011847501AEA1E4A000BAC5C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		01680CDE1AE8753F00C4F3B7 /* arbitrage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = arbitrage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01680CE21AE8753F00C4F3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01680CE31AE8753F00C4F3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +84,6 @@
 		01680D111AE8773900C4F3B7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		01680D131AE8774900C4F3B7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		01680D151AE8775400C4F3B7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		01680D171AE8775C00C4F3B7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		01680D191AE8776400C4F3B7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		01680D1B1AE8776D00C4F3B7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		01680D1D1AE8777400C4F3B7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -88,6 +96,9 @@
 		01680D321AE8B1DA00C4F3B7 /* Return.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Return.swift; sourceTree = "<group>"; };
 		01680D351AE8B30B00C4F3B7 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		01680D381AE8FF5F00C4F3B7 /* ArbitrageHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArbitrageHeaderCell.swift; sourceTree = "<group>"; };
+		01680D3C1AE9ECAE00C4F3B7 /* TradeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeView.swift; sourceTree = "<group>"; };
+		01680D3E1AE9ECD900C4F3B7 /* TradeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TradeView.xib; sourceTree = "<group>"; };
+		017ADD351AEA68E60088B17F /* ArbitrageDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArbitrageDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +106,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011847511AEA1E4A000BAC5C /* Social.framework in Frameworks */,
+				0118474F1AEA1E3F000BAC5C /* Accounts.framework in Frameworks */,
 				01680D1E1AE8777400C4F3B7 /* libsqlite3.dylib in Frameworks */,
 				01680D1C1AE8776D00C4F3B7 /* libz.dylib in Frameworks */,
 				01680D2D1AE8922400C4F3B7 /* ParseUI.framework in Frameworks */,
 				01680D1A1AE8776400C4F3B7 /* SystemConfiguration.framework in Frameworks */,
-				01680D181AE8775C00C4F3B7 /* StoreKit.framework in Frameworks */,
 				01680D161AE8775400C4F3B7 /* Security.framework in Frameworks */,
 				01680D141AE8774900C4F3B7 /* QuartzCore.framework in Frameworks */,
 				01680D121AE8773900C4F3B7 /* MobileCoreServices.framework in Frameworks */,
@@ -124,6 +136,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		010941081AEB574900A9153A /* ReturnView */ = {
+			isa = PBXGroup;
+			children = (
+				010941091AEB577100A9153A /* ReturnView.xib */,
+				0109410D1AEB6D5F00A9153A /* ReturnView.swift */,
+			);
+			name = ReturnView;
+			sourceTree = "<group>";
+		};
 		01680CD51AE8753F00C4F3B7 = {
 			isa = PBXGroup;
 			children = (
@@ -147,9 +168,12 @@
 		01680CE01AE8753F00C4F3B7 /* arbitrage */ = {
 			isa = PBXGroup;
 			children = (
+				010941081AEB574900A9153A /* ReturnView */,
+				01680D3B1AE9EC7400C4F3B7 /* TradeView */,
 				01680D2F1AE896C900C4F3B7 /* ArbitrageCell.swift */,
 				01680CE31AE8753F00C4F3B7 /* AppDelegate.swift */,
 				01680CE71AE8753F00C4F3B7 /* Main.storyboard */,
+				017ADD351AEA68E60088B17F /* ArbitrageDetailsViewController.swift */,
 				01680D381AE8FF5F00C4F3B7 /* ArbitrageHeaderCell.swift */,
 				01680D1F1AE8796800C4F3B7 /* ArbitrageTableViewController.swift */,
 				01680CEA1AE8753F00C4F3B7 /* Images.xcassets */,
@@ -187,11 +211,12 @@
 		01680D081AE876D200C4F3B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				011847501AEA1E4A000BAC5C /* Social.framework */,
+				0118474E1AEA1E3F000BAC5C /* Accounts.framework */,
 				01680D2C1AE8922400C4F3B7 /* ParseUI.framework */,
 				01680D1D1AE8777400C4F3B7 /* libsqlite3.dylib */,
 				01680D1B1AE8776D00C4F3B7 /* libz.dylib */,
 				01680D191AE8776400C4F3B7 /* SystemConfiguration.framework */,
-				01680D171AE8775C00C4F3B7 /* StoreKit.framework */,
 				01680D151AE8775400C4F3B7 /* Security.framework */,
 				01680D131AE8774900C4F3B7 /* QuartzCore.framework */,
 				01680D111AE8773900C4F3B7 /* MobileCoreServices.framework */,
@@ -215,6 +240,15 @@
 				01680D281AE886A000C4F3B7 /* Fee.swift */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		01680D3B1AE9EC7400C4F3B7 /* TradeView */ = {
+			isa = PBXGroup;
+			children = (
+				01680D3C1AE9ECAE00C4F3B7 /* TradeView.swift */,
+				01680D3E1AE9ECD900C4F3B7 /* TradeView.xib */,
+			);
+			name = TradeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +300,12 @@
 				TargetAttributes = {
 					01680CDD1AE8753F00C4F3B7 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 5FD484B7QU;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					01680CF21AE8753F00C4F3B7 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -298,6 +338,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				01680CE91AE8753F00C4F3B7 /* Main.storyboard in Resources */,
+				01680D3F1AE9ECD900C4F3B7 /* TradeView.xib in Resources */,
+				0109410A1AEB577100A9153A /* ReturnView.xib in Resources */,
 				01680CEE1AE8753F00C4F3B7 /* LaunchScreen.xib in Resources */,
 				01680CEB1AE8753F00C4F3B7 /* Images.xcassets in Resources */,
 			);
@@ -320,8 +362,11 @@
 				01680D201AE8796800C4F3B7 /* ArbitrageTableViewController.swift in Sources */,
 				01680D231AE87B9C00C4F3B7 /* Arbitrage.swift in Sources */,
 				01680D291AE886A000C4F3B7 /* Fee.swift in Sources */,
+				01680D3D1AE9ECAE00C4F3B7 /* TradeView.swift in Sources */,
+				017ADD361AEA68E60088B17F /* ArbitrageDetailsViewController.swift in Sources */,
 				01680D361AE8B30B00C4F3B7 /* Amount.swift in Sources */,
 				01680D261AE87E5000C4F3B7 /* Trade.swift in Sources */,
+				0109410E1AEB6D5F00A9153A /* ReturnView.swift in Sources */,
 				01680D331AE8B1DA00C4F3B7 /* Return.swift in Sources */,
 				01680D391AE8FF5F00C4F3B7 /* ArbitrageHeaderCell.swift in Sources */,
 				01680CE41AE8753F00C4F3B7 /* AppDelegate.swift in Sources */,
@@ -340,7 +385,6 @@
 				01680D271AE87E5000C4F3B7 /* Trade.swift in Sources */,
 				01680D341AE8B1DA00C4F3B7 /* Return.swift in Sources */,
 				01680D3A1AE8FF5F00C4F3B7 /* ArbitrageHeaderCell.swift in Sources */,
-				01680D211AE8796800C4F3B7 /* ArbitrageTableViewController.swift in Sources */,
 				01680D311AE896C900C4F3B7 /* ArbitrageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +506,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -469,6 +515,7 @@
 				INFOPLIST_FILE = arbitrage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -476,6 +523,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -483,6 +532,7 @@
 				INFOPLIST_FILE = arbitrage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -541,6 +591,7 @@
 				01680CFF1AE8753F00C4F3B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		01680D001AE8753F00C4F3B7 /* Build configuration list for PBXNativeTarget "arbitrageTests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +600,7 @@
 				01680D021AE8753F00C4F3B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

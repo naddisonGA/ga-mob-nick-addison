@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VFy-Ww-14h">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -121,7 +122,7 @@
                                     <outlet property="timeField" destination="f3p-3B-ZlB" id="7l0-4c-KHA"/>
                                     <outlet property="variableBuyAmountField" destination="OPZ-UG-aEM" id="2qd-Cd-pXq"/>
                                     <outlet property="variableSellAmountField" destination="cWn-eA-luq" id="su6-hN-xBj"/>
-                                    <segue destination="IoP-ue-Tu5" kind="show" id="6Ec-kx-iSv"/>
+                                    <segue destination="IoP-ue-Tu5" kind="show" identifier="arbDetails" id="6Ec-kx-iSv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -137,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="1263" y="395"/>
         </scene>
-        <!--View Controller-->
+        <!--Arbitrage Details-->
         <scene sceneID="fnF-qW-DKV">
             <objects>
-                <viewController id="IoP-ue-Tu5" sceneMemberID="viewController">
+                <viewController title="Arbitrage Details" id="IoP-ue-Tu5" customClass="ArbitrageDetailsViewController" customModule="arbitrage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nme-U9-nEf"/>
                         <viewControllerLayoutGuide type="bottom" id="1JJ-rT-PBk"/>
@@ -149,17 +150,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZg-JX-Ppp" userLabel="Buy View">
-                                <rect key="frame" x="16" y="161" width="276" height="375"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZg-JX-Ppp" userLabel="Buy View" customClass="TradeView" customModule="arbitrage" customModuleProvider="target">
+                                <rect key="frame" x="16" y="161" width="284" height="375"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LkW-Rc-JYa" userLabel="Sell View">
-                                <rect key="frame" x="8" y="161" width="592" height="375"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LkW-Rc-JYa" userLabel="Sell View" customClass="TradeView" customModule="arbitrage" customModuleProvider="target">
+                                <rect key="frame" x="300" y="161" width="300" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqK-bA-lfI" userLabel="Return View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="161"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ExchangeRate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRn-hL-Ylh">
+                                        <rect key="frame" x="20" y="20" width="112" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inverted Rate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBW-of-QGs">
+                                        <rect key="frame" x="477" y="20" width="103" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return Amount in sell exchange variable currency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvH-Dx-2KG">
+                                        <rect key="frame" x="20" y="49" width="380" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return Amount in buy exchange variable currency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhE-Cz-8bw">
+                                        <rect key="frame" x="20" y="78" width="383" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gl-9i-VWh" userLabel="Return Amount View" customClass="ReturnView" customModule="arbitrage" customModuleProvider="target">
+                                        <rect key="frame" x="460" y="75" width="120" height="66"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="65Q-d2-35I"/>
+                                            <constraint firstAttribute="width" constant="120" id="T8i-4s-8hU"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="assetName" value="AUD"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="amount">
+                                                <real key="value" value="22.219999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="percentage">
+                                                <real key="value" value="2.3399999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="YBW-of-QGs" firstAttribute="top" secondItem="YqK-bA-lfI" secondAttribute="top" constant="20" symbolic="YES" id="2Bm-4A-PmY"/>
+                                    <constraint firstAttribute="trailing" secondItem="7gl-9i-VWh" secondAttribute="trailing" constant="20" symbolic="YES" id="2Ey-rx-lgj"/>
+                                    <constraint firstAttribute="bottom" secondItem="7gl-9i-VWh" secondAttribute="bottom" constant="20" symbolic="YES" id="Brb-VL-OBQ"/>
+                                    <constraint firstItem="xhE-Cz-8bw" firstAttribute="top" secondItem="EvH-Dx-2KG" secondAttribute="bottom" constant="8" symbolic="YES" id="EkO-bP-NHJ"/>
+                                    <constraint firstItem="xhE-Cz-8bw" firstAttribute="leading" secondItem="YqK-bA-lfI" secondAttribute="leading" constant="20" symbolic="YES" id="XrY-gV-Fc3"/>
+                                    <constraint firstItem="EvH-Dx-2KG" firstAttribute="leading" secondItem="YqK-bA-lfI" secondAttribute="leading" constant="20" symbolic="YES" id="a8b-qa-vtT"/>
+                                    <constraint firstAttribute="trailing" secondItem="YBW-of-QGs" secondAttribute="trailing" constant="20" symbolic="YES" id="jMe-55-wjc"/>
+                                    <constraint firstItem="LRn-hL-Ylh" firstAttribute="leading" secondItem="YqK-bA-lfI" secondAttribute="leading" constant="20" symbolic="YES" id="pj8-SN-aGO"/>
+                                    <constraint firstItem="EvH-Dx-2KG" firstAttribute="top" secondItem="LRn-hL-Ylh" secondAttribute="bottom" constant="8" symbolic="YES" id="ryf-GZ-n5a"/>
+                                    <constraint firstItem="LRn-hL-Ylh" firstAttribute="top" secondItem="YqK-bA-lfI" secondAttribute="top" constant="20" symbolic="YES" id="uID-Ry-ksd"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,7 +223,7 @@
                             <constraint firstItem="YqK-bA-lfI" firstAttribute="leading" secondItem="COp-Ka-s03" secondAttribute="leading" id="1ga-fA-ZTX"/>
                             <constraint firstItem="LkW-Rc-JYa" firstAttribute="top" secondItem="YqK-bA-lfI" secondAttribute="bottom" id="2zG-8E-8Gf"/>
                             <constraint firstAttribute="trailing" secondItem="LkW-Rc-JYa" secondAttribute="trailing" id="MRh-oE-97X"/>
-                            <constraint firstItem="LkW-Rc-JYa" firstAttribute="leading" secondItem="COp-Ka-s03" secondAttribute="leadingMargin" multiplier="0.5" id="NYv-j7-jge"/>
+                            <constraint firstItem="LkW-Rc-JYa" firstAttribute="leading" secondItem="COp-Ka-s03" secondAttribute="centerXWithinMargins" id="NYv-j7-jge"/>
                             <constraint firstItem="1JJ-rT-PBk" firstAttribute="top" secondItem="LZg-JX-Ppp" secondAttribute="bottom" id="PCk-hZ-8kQ"/>
                             <constraint firstItem="YqK-bA-lfI" firstAttribute="bottom" secondItem="1JJ-rT-PBk" secondAttribute="top" multiplier="0.3" id="Qvp-9h-zHx"/>
                             <constraint firstItem="LZg-JX-Ppp" firstAttribute="top" secondItem="YqK-bA-lfI" secondAttribute="bottom" id="UTY-ut-Hhm"/>
@@ -175,9 +231,18 @@
                             <constraint firstAttribute="trailing" secondItem="YqK-bA-lfI" secondAttribute="trailing" id="Yyg-br-kUe"/>
                             <constraint firstItem="YqK-bA-lfI" firstAttribute="top" secondItem="Nme-U9-nEf" secondAttribute="bottom" id="ZXQ-nF-upA"/>
                             <constraint firstItem="LZg-JX-Ppp" firstAttribute="leading" secondItem="COp-Ka-s03" secondAttribute="leadingMargin" id="aFz-7K-BcM"/>
-                            <constraint firstItem="LZg-JX-Ppp" firstAttribute="trailing" secondItem="COp-Ka-s03" secondAttribute="trailingMargin" multiplier="0.5" id="h3a-At-Ocf"/>
+                            <constraint firstItem="LZg-JX-Ppp" firstAttribute="trailing" secondItem="COp-Ka-s03" secondAttribute="centerXWithinMargins" id="h3a-At-Ocf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buyTradeView" destination="LZg-JX-Ppp" id="Zpv-Go-hzF"/>
+                        <outlet property="exchangeRateField" destination="LRn-hL-Ylh" id="y0N-xw-4EX"/>
+                        <outlet property="invertedExchangeRateField" destination="YBW-of-QGs" id="Fdj-vT-gQi"/>
+                        <outlet property="returnAmountInBuyExchangeQuoteCurrencyField" destination="xhE-Cz-8bw" id="Mot-eS-4i7"/>
+                        <outlet property="returnAmountInSellExchangeQuoteCurrencyField" destination="EvH-Dx-2KG" id="bPi-So-2BM"/>
+                        <outlet property="returnAmountInSellExchangeQuoteCurrencyView" destination="7gl-9i-VWh" id="T1h-Nm-upF"/>
+                        <outlet property="sellTradeView" destination="LkW-Rc-JYa" id="pBR-CZ-mUX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axH-Cc-Doy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

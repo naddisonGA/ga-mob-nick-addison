@@ -9,6 +9,11 @@
 import Foundation
 import Parse
 
+enum TradeSide {
+    case Sell
+    case Buy
+}
+
 class Trade : PFObject, PFSubclassing
 {
     class func parseClassName() -> String {
@@ -22,6 +27,8 @@ class Trade : PFObject, PFSubclassing
     
     @NSManaged var exchangeName: String!
     @NSManaged var instrumentName: String!
+    
+    //@NSManaged var side: TradeSide!
     
     @NSManaged var price: Double
     @NSManaged var quantity: Double

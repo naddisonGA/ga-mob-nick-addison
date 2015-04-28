@@ -54,36 +54,62 @@ class ArbitrageTableViewController: PFQueryTableViewController
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject!) -> PFTableViewCell? {
         
-        let cellIdentifier = "arbitrageCell"
-        
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! ArbitrageCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("arbitrageCell") as! ArbitrageCell
         
         let arbitrage = object as! Arbitrage
         
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "HH:mm" //format style. Browse online to get a format that fits your needs.
-        
         if let timestamp = arbitrage.timestamp
         {
+            var dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "HH:mm"
+            
             cell.timeField.text = dateFormatter.stringFromDate(timestamp)
         }
         
         cell.exchangeRateField.text = String(format:"%.3f", arbitrage.variableExchangeRate)
         
-        if let arbReturn = arbitrage.arbReturn
+        if let returnPercentage = arbitrage.arbReturn?.percentage
         {
-            cell.returnPercentageField.text = String(format:"%.2f%", arbReturn.percentage)
-            cell.variableBuyAmountField.text = String(format:"%.2f%", arbReturn.amount("USD"))
-            cell.variableSellAmountField.text = String(format:"%.2f%", arbReturn.amount("AUD"))
+            cell.returnPercentageField.text = String(format:"%.2f%", returnPercentage)
         }
         else
         {
             cell.returnPercentageField.text = nil
+        }
+        
+        if let returnQuantity = arbitrage.arbReturn?.amount(.Buy)
+        {
+            cell.variableBuyAmountField.text = String(format:"%.2f%", returnQuantity)
+        }
+        else
+        {
             cell.variableBuyAmountField.text = nil
+        }
+        
+        if let returnQuantity = arbitrage.arbReturn?.amount(.Sell)
+        {
+            cell.variableSellAmountField.text = String(format:"%.2f%", returnQuantity)
+        }
+        else
+        {
             cell.variableSellAmountField.text = nil
         }
         
         return cell
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "arbDetails"
+        {
+            let destinationViewController = segue.destinationViewController as? ArbitrageDetailsViewController
+            
+            if let indexPath = tableView.indexPathForSelectedRow()
+            {
+                let objectForSelectedRow = objectAtIndexPath(indexPath)
+                destinationViewController!.arbitrage = objectForSelectedRow as? Arbitrage
+            }
+        }
+    }
 }
+

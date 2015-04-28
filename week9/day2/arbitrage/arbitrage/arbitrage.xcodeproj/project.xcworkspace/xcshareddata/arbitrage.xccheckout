@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>15D518A0-B305-4E7C-BFAE-ACD2C3E4459E</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>arbitrage</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>EB6161313F9517D9B5C6EA72402A28D0DB7BA94F</key>
 		<string>https://github.com/naddisonGA/ga-mob-nick-addison.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>week9/day2/arbitrage/arbitrage/arbitrage.xcodeproj/project.xcworkspace</string>
+	<string>week9/day2/arbitrage/arbitrage/arbitrage.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>EB6161313F9517D9B5C6EA72402A28D0DB7BA94F</key>
