@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:parseTestApp"
+      name = "parseTestApp">
+      <Group
+         location = "group:Bolts.framework"
+         name = "Bolts.framework">
+         <FileRef
+            location = "group:Bolts">
+         </FileRef>
+         <Group
+            location = "group:Headers"
+            name = "Headers">
+            <FileRef
+               location = "group:BFAppLink.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFAppLinkNavigation.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFAppLinkResolving.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFAppLinkReturnToRefererController.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFAppLinkReturnToRefererView.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFAppLinkTarget.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFExecutor.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFMeasurementEvent.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFTask.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFTaskCompletionSource.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFURL.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFWebViewAppLinkResolver.h">
+            </FileRef>
+            <FileRef
+               location = "group:Bolts.h">
+            </FileRef>
+            <FileRef
+               location = "group:BoltsVersion.h">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <Group
+            location = "group:Modules"
+            name = "Modules">
+            <FileRef
+               location = "group:module.modulemap">
+            </FileRef>
+         </Group>
+      </Group>
+      <Group
+         location = "group:Parse.framework"
+         name = "Parse.framework">
+         <Group
+            location = "group:Headers"
+            name = "Headers">
+            <FileRef
+               location = "group:Parse.h">
+            </FileRef>
+            <FileRef
+               location = "group:PF_Twitter.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFACL.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFAnalytics.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFAnonymousUtils.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFCloud.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFConfig.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFConstants.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFFile.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFGeoPoint.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFInstallation.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFNetworkActivityIndicatorManager.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFNullability.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFObject+Subclass.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFObject.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFProduct.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFPurchase.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFPush.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFQuery.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFRelation.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFRole.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFSession.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFSubclassing.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFTwitterUtils.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFUser.h">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <FileRef
+            location = "group:Localizable.strings">
+         </FileRef>
+         <Group
+            location = "group:Modules"
+            name = "Modules">
+            <FileRef
+               location = "group:module.modulemap">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Parse">
+         </FileRef>
+         <FileRef
+            location = "group:third_party_licenses.txt">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:parseTestApp"
+         name = "parseTestApp">
+         <FileRef
+            location = "group:AppDelegate.swift">
+         </FileRef>
+         <Group
+            location = "group:Base.lproj"
+            name = "Base.lproj">
+            <FileRef
+               location = "group:LaunchScreen.xib">
+            </FileRef>
+            <FileRef
+               location = "group:Main.storyboard">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:DetailViewController.swift">
+         </FileRef>
+         <Group
+            location = "group:Images.xcassets"
+            name = "Images.xcassets">
+            <Group
+               location = "group:AppIcon.appiconset"
+               name = "AppIcon.appiconset">
+               <FileRef
+                  location = "group:Contents.json">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <FileRef
+            location = "group:MasterViewController.swift">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:parseTestApp.xcodeproj">
+      </FileRef>
+      <Group
+         location = "group:parseTestAppTests"
+         name = "parseTestAppTests">
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <FileRef
+            location = "group:parseTestAppTests.swift">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:ParseUI.framework"
+         name = "ParseUI.framework">
+         <Group
+            location = "group:Headers"
+            name = "Headers">
+            <FileRef
+               location = "group:ParseUI.h">
+            </FileRef>
+            <FileRef
+               location = "group:ParseUIConstants.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFCollectionViewCell.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFImageView.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFLogInView.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFLogInViewController.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFProductTableViewController.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFPurchaseTableViewCell.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFQueryCollectionViewController.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFQueryTableViewController.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFSignUpView.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFSignUpViewController.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFTableViewCell.h">
+            </FileRef>
+            <FileRef
+               location = "group:PFTextField.h">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <Group
+            location = "group:Modules"
+            name = "Modules">
+            <FileRef
+               location = "group:module.modulemap">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:ParseUI">
+         </FileRef>
+      </Group>
+   </Group>
+</Workspace>
