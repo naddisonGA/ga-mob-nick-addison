@@ -1,15 +1,15 @@
 //
-//  networkingTests.swift
-//  networkingTests
+//  tradingTests.swift
+//  tradingTests
 //
-//  Created by Nicholas Addison on 30/04/2015.
+//  Created by Nicholas Addison on 4/05/2015.
 //  Copyright (c) 2015 Nicholas Addison. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class networkingTests: XCTestCase {
+class tradingTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

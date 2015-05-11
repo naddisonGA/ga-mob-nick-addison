@@ -3,3 +3,10 @@ platform :ios, '8.0'
 use_frameworks!
 
 pod 'Alamofire', '~> 1.2'
+pod 'XCGLogger', '~> 2.0'
+pod 'SwiftyJSON', '~> 2.2'
+pod 'Dollar', '~> 3.0'
+pod 'Cent', '~> 3.0'
+pod 'TaskQueue', '~> 0.9'
+
+link_with 'networking', 'networkingTests'

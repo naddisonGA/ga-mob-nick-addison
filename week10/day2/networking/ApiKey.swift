@@ -9,10 +9,10 @@
 import Foundation
 
 // stored API access information
-public struct Key
+public struct ApiKey
 {
     public let key: String
-    public let secret: String
+    public let secret: String?
     
     // some exchanges give a unique identifier to the API keys on their exchange
     public let id: String? = nil
@@ -22,7 +22,7 @@ public struct Key
     
     // MARK: - initializer
     
-    init (key: String, secret: String)
+    init (key: String, secret: String?)
     {
         self.key = key
         self.secret = secret

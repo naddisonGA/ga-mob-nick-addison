@@ -8,8 +8,22 @@
 
 import Foundation
 
-public struct Ticker
+public class Ticker
 {
+    init (exchange: Exchange, instrument: Instrument,
+        ask: Double, bid: Double,
+        lastPrice: Double?, timestamp: NSDate?)
+    {
+        self.exchange = exchange
+        self.instrument = instrument
+        
+        self.ask = ask
+        self.bid = bid
+        
+        self.lastPrice = lastPrice
+        self.timestamp = timestamp
+    }
+    
     // unique identifier of the market, which is an insturment traded on an exchange
     let exchange: Exchange
     let instrument: Instrument
@@ -21,17 +35,4 @@ public struct Ticker
     let lastPrice: Double?
     
     let timestamp: NSDate?
-    
-    // MARK: - initializer
-    
-//    init (exchange: Exchange, instrument: Instrument, bid: Double, ask: Double, last: Double? = nil, timestamp: NSDate = NSDate() )
-//    {
-//        self.exchange = exchange
-//        self.instrument = instrument
-//        
-//        self.bid = bid
-//        self.ask = ask
-//        
-//        self.timestamp = timestamp
-//    }
 }

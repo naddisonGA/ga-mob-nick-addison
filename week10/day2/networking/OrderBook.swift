@@ -32,10 +32,7 @@ public class OrderBook
         self.bids = bids
         self.asks = asks
         
-        if let timestamp = timestamp
-        {
-            self.timestamp = timestamp
-        }
+        self.timestamp = timestamp
     }
     
     //TODO: need to implement addOrder

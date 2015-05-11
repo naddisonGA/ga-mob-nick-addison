@@ -9,6 +9,31 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Cent.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Dollar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-TaskQueue.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-XCGLogger.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6DEC4562EF3737E2742C15F8</key>
+		<key>0864279F19C5BF2B5E9F2F5E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>754340509F448326A6732BE5</key>
+		<key>4BE88E01223DAA97992AAB4F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C39E4BA83079E171D73609D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>80F2049E8F07EFC3FADFCBCA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EBBF23452431A6885995951</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BAF0F03F47B64E9845D8C971</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4FA9D733406107C325AF8C5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

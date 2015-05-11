@@ -8,27 +8,32 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
+import Security
+import CommonCrypto
 
-//let btcMarketsMarketDelegate =
-
-// instance of BTC Markets
-let btcMarkets = BTCMarkets(
-    name: "BTC Markets",
-    instruments: [BTCAUD, LTCAUD, LTCBTC],
-    commissionRates: ExchangeCommissionRates(rates: [AUD: 0.001, USD: 0.001, BTC: 0.001]),
-    feeChargedIn: .QuoteAsset)
-
+// Implementation of the BTC Markets bitcoin exchange REST API
+// https://github.com/BTCMarkets/API
 class BTCMarkets : ExchangeAbstract, Exchange
 {
-    var server = "https://api.btcmarkets.net/"
+    //MARK:- class constants
     
-    init (name: String, instruments: [Instrument], commissionRates: ExchangeCommissionRates, feeChargedIn: ExchangeFeeChargedIn = .BuyAsset)
+    let keychainKeyForApiKey: String = "au.com.addisonbrown.api.btcMarkets.key"
+    let keychainKeyForApiSecret: String = "au.com.addisonbrown.api.btcMarkets.secret"
+    
+    let _numberConverter: Double = 100000000
+    
+    //MARK:- initializers
+    
+    init (
+        name: String,
+        instruments: [Instrument],
+        commissionRates: ExchangeCommissionRates,
+        feeChargedIn: ExchangeFeeChargedIn = .QuoteAsset,
+        accounts: [Account] = [Account]() )
     {
         super.init(name: name, feeChargedIn: feeChargedIn, commissionRates: commissionRates)
         super.delegate = self
-        
-        // initialise to an empty dictionary
-        self.markets = [Instrument : Market]()
         
         // for each instrument
         for instrument in instruments
@@ -37,80 +42,139 @@ class BTCMarkets : ExchangeAbstract, Exchange
             // and add to the markets dictionary
             self.markets[instrument] = Market(exchange: self, instrument: instrument)
         }
+        
+        self.accounts = accounts
+        
+        // load API key from Keychain
+        setApiKeysFromKeychain()
     }
     
-    func marketPath(instrument: Instrument, action: String) -> String
+    /// sets the API key and secret stored in the Keychain
+    func setKeyOnRouter(apiKey: String, apiSecret: String?) -> ()
     {
-        return "/market/" + instrument.baseAsset.code + "/" + instrument.quoteAsset.code + "/" + action
+        BTCMarketsRouter.apiKey = ApiKey(key: apiKey, secret: apiSecret)
     }
+    
+    //MARK: - public market data methods
     
     func getTicker(instrument: Instrument, callback: (ticker: Ticker?, error: NSError?) -> () )
     {
-        let path = marketPath(instrument, action: "tick")
+        log.debug("About to call \(self.name) ticker API")
         
-        Alamofire.request(.GET, server + path)
-            .responseJSON { (request, response, JSON, error) in
+        Alamofire.request(BTCMarketsRouter.Ticker(instrument))
+            .responseJSON { (request, response, json, error) in
                 
-                if error == nil
+                if let error = error
                 {
-                    let newTicker = Ticker(
-                        exchange: self as Exchange,
-                        instrument: instrument,
-                        bid: JSON!.valueForKey("bestBid") as! Double,
-                        ask: JSON!.valueForKey("bestAsk") as! Double,
-                        lastPrice: (JSON!.valueForKey("lastPrice") as! Double),
-                        timestamp: NSDate(timeIntervalSince1970: JSON!.valueForKey("timestamp") as! NSTimeInterval)
+                    log.error("Failed to call \(self.name) ticker API: " + error.description)
+                    
+                    //FIXME:- wrap Alamofire error before returning
+                    callback(ticker: nil, error: error)
+                    return
+                }
+                else if let json: AnyObject = json
+                {
+                    // convert into a SwiftJSON struct
+                    let json = JSON(json)
+                    
+                    log.debug("Successfully called \(self.name) ticker API. JSON: " + json.description)
+                    
+                    if  let ask = json["bestAsk"].double,
+                        let bid = json["bestBid"].double,
+                        let lastPrice = json["lastPrice"].double,
+                        let timestamp = json["timestamp"].number
+                    {
+                        let newTicker = Ticker(
+                            exchange: self as Exchange,
+                            instrument: instrument,
+                            ask: ask,
+                            bid: bid,
+                            lastPrice: lastPrice,
+                            timestamp: NSDate(timeIntervalSince1970: timestamp as! NSTimeInterval)
                         )
-                    
-                    self.markets[instrument]?.latestTicker = newTicker
-                    
-                    callback(ticker: newTicker, error: nil)
+                        
+                        self.markets[instrument]?.latestTicker = newTicker
+                        
+                        // post ticker to any observers
+                        NSNotificationCenter.defaultCenter().postNotificationName(ExchangeNotificationName.Ticker.rawValue, object: newTicker)
+                        
+                        callback(ticker: newTicker, error: nil)
+                        return
+                    }
+                    else
+                    {
+                        log.error("Failed to parse \(self.name) ticker data");
+                    }
                 }
                 else
                 {
-                    callback(ticker: nil, error: error)
+                    log.error("Failed to call \(self.name) ticker API. No JSON data was returned")
                 }
+                
+                //FIXME: - need to return an NSError
+                callback(ticker: nil, error: nil)
         }
     }
     
     func getOrderBook(instrument: Instrument, callback: (orderBook: OrderBook?, error: NSError?) -> () )
     {
-        let path = marketPath(instrument, action: "orderbook")
+        log.debug("About to call \(self.name) order book API")
         
-        Alamofire.request(.GET, server + path)
-            .responseJSON { (request, response, JSON, error) in
+        Alamofire.request(BTCMarketsRouter.OrderBook(instrument))
+            .responseJSON { (request, response, json, error) in
                 
-                if error == nil
+                if let error = error
                 {
-                    let bids = self.convertOrdersInOrderBook(JSON!.valueForKey("bids") as! [[Double]])
-                    let asks = self.convertOrdersInOrderBook(JSON!.valueForKey("asks") as! [[Double]])
+                    log.error("Failed to call the \(self.name) order book API: " + error.description)
+                    
+                    callback(orderBook: nil, error: error)
+                }
+                else if let json: AnyObject = json
+                {
+                    let json = JSON(json)
+                    
+                    log.debug("Successfully called \(self.name) order book API: JSON: " + json.description)
+                    
+                    let bids = self.convertOrdersInOrderBook(json["bids"])
+                    let asks = self.convertOrdersInOrderBook(json["asks"])
                     
                     let newOrderBook = OrderBook(
                         bids: bids,
                         asks: asks,
-                        timestamp: NSDate(timeIntervalSince1970: JSON!.valueForKey("timestamp") as! NSTimeInterval))
+                        timestamp: NSDate(timeIntervalSince1970: json["timestamp"].number as! NSTimeInterval))
                     
                     self.markets[instrument]?.latestOrderBook = newOrderBook
                     
+                    // post order book to any observers
+                    NSNotificationCenter.defaultCenter().postNotificationName(ExchangeNotificationName.OrderBook.rawValue, object: newOrderBook)
+                    
                     callback(orderBook: newOrderBook, error: nil)
-                }
-                else
-                {
-                    callback(orderBook: nil, error: error)
                 }
         }
     }
     
-    func convertOrdersInOrderBook(JSONOrders: [[Double]]) -> [OrderBookOrder]
+    private func convertOrdersInOrderBook(orders: JSON) -> [OrderBookOrder]
     {
+        // initialize an empty array of order book orders
         var convertedOrders = [OrderBookOrder]()
         
-        for order in JSONOrders
+        // for each order in the array of orders
+        for (index: String, order: JSON) in orders
         {
-            convertedOrders.append(OrderBookOrder(
-                price: order[0],
-                quantity: order[1]
-                ))
+            // get price and quantity from the order array
+            if  let price = order[0].double,
+                let quantity =  order[0].double
+            {
+                // add converted order to the array that will be returned
+                convertedOrders.append(OrderBookOrder(
+                    price: price,
+                    quantity: quantity
+                    ))
+            }
+            else
+            {
+                log.debug("Could not parse price or quantity. Price error: \(order[0].error). Quantity error \(order[1].error)")
+            }
         }
         
         return convertedOrders
@@ -118,19 +182,12 @@ class BTCMarkets : ExchangeAbstract, Exchange
     
     func getTrades(instrument: Instrument, callback: (trades: [Trade]?, error: NSError?) -> () )
     {
-        let path = marketPath(instrument, action: "trades")
-        
-        Alamofire.request(.GET, server + path)
+        Alamofire.request(BTCMarketsRouter.Trades(instrument))
             .responseJSON { (request, response, JSON, error) in
                 
                 if error == nil
                 {
-//                    let newTrade = Trade(
-//                        exchange: self as Exchange,
-//                        instrument: instrument,
-//                        timestamp: NSDate(timeIntervalSince1970: JSON!.valueForKey("timestamp") as! NSTimeInterval)
-//                    )
-//                    
+//                    let new
 //                    callback(trades: [newTrade], error: nil)
                 }
                 else
@@ -140,7 +197,85 @@ class BTCMarkets : ExchangeAbstract, Exchange
         }
     }
     
-    //MARK: - private methods
+    //MARK: - private order methods
+    
+    func getBalances(callback: (balances: [Balance]?, error: NSError?) -> () )
+    {
+        log.debug("About to call \(self.name) account balance API")
+        
+        Alamofire.request(BTCMarketsRouter.Balances())
+            .responseJSON { (request, response, data, error) in
+                
+                if let error = error
+                {
+                    log.error("Failed to call the \(self.name) balance API: " + error.description)
+                    
+                    callback(balances: [Balance](), error: error)
+                }
+                else if let data: AnyObject = data
+                {
+                    let json = JSON(data)
+                    
+                    log.debug("json response from \(self.name) balances API: \(json.description)")
+                    
+                    if let errorMessage = json["errorMessage"].string
+                    {
+                        //TODO:- construct a new NSError with nested Alamoire error and return in callback
+                        log.error("Failed to call the \(self.name) balance API: " + errorMessage)
+                        return callback(balances: [Balance](), error: nil)
+                    }
+                    
+                    if let exchangeBalances = json.array
+                    {
+                        log.debug("Successfully retireved \(exchangeBalances.count) account balances from \(self.name)")
+                        
+                        var newBalances = [Balance]()
+                        
+                        for balance in exchangeBalances
+                        {
+                            if let currencyCode: String = balance["currency"].string
+                            {
+                                if let currency = CurrencyManager.sharedCurrencyManager.find(currencyCode)
+                                {
+                                    var newBalance = Balance(asset: currency)
+                                    
+                                    if let total: Double = balance["balance"].double,
+                                        let pendingFunds: Double = balance["pendingFunds"].double
+                                    {
+                                        newBalance.total = total / self._numberConverter
+                                        newBalance.available = (total - pendingFunds) / self._numberConverter
+                                        
+                                        newBalances.append(newBalance)
+                                    }
+                                    else
+                                    {
+                                        //TODO:- log error
+                                        println("could not parse the balance or pendingFunds fields")
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                println(balance["currency"].error)
+                            }
+                        }
+                        
+                        // add new balances to the Exchange account
+                        //FIXME: need support for multiple accounts on a single exchange
+                        // for now will assume there is only one account on the exchange.
+                        // that is, the balances belong to the first account
+                        self.accounts.first?.balances = newBalances
+                        
+                        // return newly instanciated balances in the callback
+                        callback(balances: newBalances, error: nil)
+                    }
+                    else
+                    {
+                        //TODO:- log error and return in callback
+                    }
+                }
+        }
+    }
     
     func addOrder(newOrder: Order, callback: (exchangeOrder: Order?, error: NSError?) -> () )
     {

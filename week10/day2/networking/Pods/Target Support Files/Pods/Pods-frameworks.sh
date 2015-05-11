@@ -49,7 +49,17 @@ code_sign() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Alamofire.framework'
+  install_framework 'Cent.framework'
+  install_framework 'Dollar.framework'
+  install_framework 'SwiftyJSON.framework'
+  install_framework 'TaskQueue.framework'
+  install_framework 'XCGLogger.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Alamofire.framework'
+  install_framework 'Cent.framework'
+  install_framework 'Dollar.framework'
+  install_framework 'SwiftyJSON.framework'
+  install_framework 'TaskQueue.framework'
+  install_framework 'XCGLogger.framework'
 fi
