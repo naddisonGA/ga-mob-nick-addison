@@ -12,9 +12,19 @@ import Foundation
 //
 public class ExchangeAbstract
 {
-    internal var delegate: Exchange!
+    //MARK:- to be set to the instance of the subclass
+    var delegate: Exchange!
     
-    internal init(
+    //MARK:- Initialized properties
+    
+    // unique identifier
+    public let name: String
+    
+    public var feeChargedIn: ExchangeFeeChargedIn
+    
+    public var commissionRates: ExchangeCommissionRates
+    
+    init(
         name: String,
         feeChargedIn: ExchangeFeeChargedIn = .BuyAsset,
         commissionRates: ExchangeCommissionRates)
@@ -25,17 +35,14 @@ public class ExchangeAbstract
         self.commissionRates = commissionRates
     }
     
-    // unique identifier
-    let name: String
+    //MARK:- Optional properties
     
-    var markets = [Instrument : Market]()
+    public var markets = [Instrument : Market]()
     
     // user accounts. Note one user can have multiple accounts
-    var accounts: [Account] = []
+    public var accounts = [Account]()
     
-    var feeChargedIn: ExchangeFeeChargedIn
-    
-    var commissionRates: ExchangeCommissionRates
+    //MARK:- Computed properties
     
     // use the unique exchange name to generate a hash value
     public var hashValue: Int
@@ -43,56 +50,7 @@ public class ExchangeAbstract
             return self.name.hashValue
     }
     
-    /// set api key and secret from the Keychain
-    func setApiKeysFromKeychain()
-    {
-        if  let apiKey = Keychain.get(self.delegate.keychainKeyForApiKey),
-            let apiSecret = Keychain.get(self.delegate.keychainKeyForApiSecret)
-        {
-            self.delegate.setKeyOnRouter(apiKey, apiSecret: apiSecret)
-        }
-        else
-        {
-            log.error("\(self.name) API key and/ or secret could not be retreived from the Keychain using keys \(self.delegate.keychainKeyForApiKey) and \(self.delegate.keychainKeyForApiSecret)")
-        }
-    }
-    
-    
-//    func getTickers (instruments: [Instrument], callback: (tickers: [Ticker]?, error: NSError?) -> () )
-//    {
-//        var returnedTickers = [Ticker]()
-//        var returnedError: NSError? = nil
-//        
-//        for instrument in instruments
-//        {
-//            delegate.getTicker(instrument) {
-//                (ticker, error) in
-//                
-//                // if have not already returned an error
-//                if returnedError != nil
-//                {
-//                    // if an error was returned for this ticker
-//                    if error != nil
-//                    {
-//                        callback(tickers: nil, error: error)
-//                    }
-//                    // if a ticker was successfully returned
-//                    else if let ticker = ticker
-//                    {
-//                        // add to the array of tickers to be returned for the array of instruments
-//                        returnedTickers.append(ticker)
-//                        
-//                        // if all the tickers have been returned for the instruments
-//                        if returnedTickers.count == instruments.count
-//                        {
-//                            // pass back the array of tickers in the callback
-//                            callback(tickers: returnedTickers, error: error)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
+    //MARK:- Generic implementations of Exchange protocol functions
     
     // a genric implementation that loops through each instrument calling getTicker in parallel
     // once all the tickers have been received they are passed back through the callback
@@ -100,7 +58,10 @@ public class ExchangeAbstract
     // Only the first error is returned if there are multiple errors. That is, the callback is only called once
     func getTickers (instruments: [Instrument], completionHandler: (tickers: [Ticker]?, error: NSError?) -> () )
     {
-        func iterator(instrument: Instrument, iteratorCompletionHandler: (ticker: Ticker?, error: NSError?) -> () ) -> ()
+        func iterator(
+            instrument: Instrument,
+            iteratorCompletionHandler: (ticker: Ticker?, error: NSError?) -> ()
+            ) -> ()
         {
             self.delegate.getTicker(instrument) {
                 (ticker, error) in
@@ -115,7 +76,10 @@ public class ExchangeAbstract
     // a genric implementation that loops through each instrument calling getOrderBook in parallel
     func getOrderBooks(instruments: [Instrument], completionHandler: (orderBooks: [OrderBook]?, error: NSError?) -> () )
     {
-        func iterator(instrument: Instrument, iteratorCompletionHandler: (orderBook: OrderBook?, error: NSError?) -> () ) -> ()
+        func iterator(
+            instrument: Instrument,
+            iteratorCompletionHandler: (orderBook: OrderBook?, error: NSError?) -> ()
+            ) -> ()
         {
             self.delegate.getOrderBook(instrument) {
                 (orderBook, error) in
@@ -125,6 +89,22 @@ public class ExchangeAbstract
         }
         
         Async.each(instruments, iterator: iterator, completionHandler: completionHandler)
+    }
+    
+    //MARK:- Helper functions not in the Exchange protocol
+    
+    // set api key and secret from the Keychain
+    func setApiKeysFromKeychain()
+    {
+        if  let apiKey = Keychain.get(self.delegate.keychainKeyForApiKey),
+            let apiSecret = Keychain.get(self.delegate.keychainKeyForApiSecret)
+        {
+            self.delegate.setKeyOnRouter(apiKey, apiSecret: apiSecret)
+        }
+        else
+        {
+            log.error("\(self.name) API key and/ or secret could not be retreived from the Keychain using keys \(self.delegate.keychainKeyForApiKey) and \(self.delegate.keychainKeyForApiSecret)")
+        }
     }
     
     public func getUniqueAssets () -> [Asset]
@@ -164,5 +144,72 @@ public class ExchangeAbstract
         }
         
         return assets
+    }
+    
+    func summedBalances(convertedTo: Asset) -> (Balance?, NSError?)
+    {
+        var totalBalance = Balance(asset: convertedTo)
+        
+        // for each account on the exchange
+        for account in self.accounts
+        {
+            // for each balance in the account
+            for balance in account.balances
+            {
+                // get the rate to convert the balance amounts to the desired asset
+                if let exchangeRate = AssetExchanger.sharedAssetExchanger.getRate(balance.asset, toAsset: convertedTo)
+                {
+                    // increment the total and aavailable amounts
+                    totalBalance.total += balance.total * exchangeRate
+                    totalBalance.available += balance.available * exchangeRate
+                }
+                else
+                {
+                    let error = ABTradingError.CreateWithReason(
+                        "Could not sum balances of the \(self.name) exchange",
+                        "Could not find an exchange rate to convert \(balance.asset.code) to \(convertedTo.code)").error
+                    
+                    return (nil, error)
+                }
+            }
+        }
+        
+        return (totalBalance, nil)
+    }
+    
+    //MARK:- Empty Exchange protocol functions that should be implemented in the subclass
+    
+    
+    
+    func addOrder(newOrder: Order, completionHandler: (exchangeOrder: Order?, error: NSError?) -> () )
+    {
+        let error = ABTradingError.MethodNotImplemented.error
+        log.error(error.description)
+        
+        completionHandler(exchangeOrder: nil, error: error)
+    }
+    
+    func cancelOrder(oldOrder: Order, completionHandler: (error: NSError?) -> () )
+    {
+        let error = ABTradingError.MethodNotImplemented.error
+        log.error(error.description)
+        
+        completionHandler(error: error)
+    }
+    
+    func getOrder(exchangeId: String, completionHandler: (exchangeOrder: Order?, error: NSError?) -> () )
+    {
+        let error = ABTradingError.MethodNotImplemented.error
+        log.error(error.description)
+        
+        completionHandler(exchangeOrder: nil, error: error)
+    }
+    
+    func getOpenOrders(instrument: Instrument, completionHandler: (exchangeOrder: Order?, error: NSError?) -> () )
+    {
+        let error = ABTradingError.MethodNotImplemented.error
+        log.error(error.description)
+        
+        completionHandler(exchangeOrder: nil, error: error)
     }
 }

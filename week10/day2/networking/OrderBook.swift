@@ -63,12 +63,7 @@ public class OrderBook
     {
         if (requiredAmount <= 0)
         {
-            let error = NSError(
-                domain: domainTP,
-                code: Errors.OrderBookGetVwapInvalidRequiredAmount.rawValue,
-                userInfo: [
-                    NSLocalizedDescriptionKey: "Invalid required amount \(requiredAmount)",
-                    NSLocalizedFailureReasonErrorKey: "Required amount number be greater than 0"])
+            let error = ABTradingError.OrderBook_GetVwap_InvalidRequiredAmount(requiredAmount).error
             
             NSLog(error.debugDescription)
             return (nil, error)
@@ -105,12 +100,7 @@ public class OrderBook
         
         if (sumAmount < requiredAmount)
         {
-            let error = NSError(
-                domain: domainTP,
-                code: Errors.OrderBookGetVwapNotEnoughInOrderBook.rawValue,
-                userInfo: [
-                    NSLocalizedDescriptionKey: "Not enough orders in the order book to calculate volume weighted average price for required amount \(requiredAmount)",
-                    NSLocalizedFailureReasonErrorKey: "Only \(sumAmount) total amount in the order book"])
+            let error = ABTradingError.OrderBook_GetVwap_NotEnoughInOrderBook(requiredAmount, sumAmount).error
             
             NSLog(error.debugDescription)
             return (nil, error)

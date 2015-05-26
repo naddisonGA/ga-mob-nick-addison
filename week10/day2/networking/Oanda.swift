@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class Oanda: ExchangeAbstract, Exchange
 {
@@ -61,39 +62,84 @@ class Oanda: ExchangeAbstract, Exchange
     
     override func getTickers (instruments: [Instrument], completionHandler: (tickers: [Ticker]?, error: NSError?) -> () )
     {
-        log.debug("about to call Oanda's \(self.environment.rawValue) prices API")
+        log.debug("about to call Oanda's \(self.environment.rawValue) ticker API for \(instruments.count) instruments")
         
         Alamofire.request(OandaRouter.Tickers(instruments))
-            .responseJSON { (request, response, json, error) -> Void in
+            .responseJSON {
+                request, response, json, error in
                 
                 var tickers = [Ticker]()
                 
-                if error != nil
+                if let error = error
                 {
+                    log.error("Failed to call \(self.name) tickers API: " + error.description)
+                    
+                    //FIXME:- wrap Alamofire error before returning
                     completionHandler(tickers: nil, error: error)
+                    return
                 }
-                else if json != nil
+                else if let json: AnyObject = json
                 {
-                    log.debug("Successfully called Oanda's \(self.environment.rawValue) price API. JSON response: \(json!)")
+                    let json = JSON(json)
+                    
+                    if let errorMessage = json["message"].string
+                    {
+                        let errorStr = "Failed to call \(self.name) tickers API. Error message \(errorMessage)"
+                        log.error(errorStr)
+                        
+                        //FIXME:- wrap Alamofire error before returning
+                        completionHandler(tickers: nil, error: NSError() )
+                        return
+                    }
+                    
+                    log.debug("Successfully called \(self.name) order book API. JSON: \(json.description)")
                     
                     let dateFormatter = NSDateFormatter()
                     dateFormatter.dateFormat = "YYYY-MM-DDTHH:mm:ss.Z"
                     
-                    for price in json!.valueForKey("prices") as! [AnyObject]
+                    if let prices = json["prices"].array
                     {
-                        let dateFromString = dateFormatter.dateFromString(price.valueForKey("time") as! String)
+                        var index = 0
                         
-                        let newTicker = Ticker(
-                            exchange: self,
-                            instrument: instruments.first!,
-                            ask: price.valueForKey("ask") as! Double,
-                            bid: price.valueForKey("bid") as! Double,
-                            lastPrice: nil,
-                            timestamp: dateFromString
-                        )
-                        
-                        tickers.append(newTicker)
+                        for price in prices
+                        {
+                            if let timestamp = price["time"].string,
+                                let ask = price["ask"].double,
+                                let bid = price["bid"].double
+
+                            {
+                                let dateFromString = dateFormatter.dateFromString(timestamp)
+                                
+                                let newTicker = Ticker(
+                                    exchange: self,
+                                    instrument: instruments[index],
+                                    ask: ask,
+                                    bid: bid,
+                                    lastPrice: nil,
+                                    timestamp: dateFromString
+                                )
+                                
+                                tickers.append(newTicker)
+                            }
+                            else
+                            {
+                                log.error("Unable to parse price object from \(self.name): " + price.description)
+                                //FIXME: return a Error
+                                completionHandler(tickers: nil, error: NSError() )
+                                return
+                            }
+                            
+                            index++
+                        }
                     }
+                    else
+                    {
+                        log.error("Unable to parse prices object from \(self.name). JSON: " + json.description)
+                        //FIXME: return a Error
+                        completionHandler(tickers: nil, error: NSError() )
+                        return
+                    }
+                    
                 }
                 else
                 {
@@ -104,38 +150,48 @@ class Oanda: ExchangeAbstract, Exchange
         }
     }
     
-    func getTicker(instrument: Instrument, callback: (ticker: Ticker?, error: NSError?) -> () )
+    func getTicker(instrument: Instrument, completionHandler: (ticker: Ticker?, error: NSError?) -> () )
     {
         getTickers([instrument]) {
-            (tickers, error) in
+            tickers, error in
+            
             if let error = error
             {
-                callback(ticker: nil, error: error)
+                completionHandler(ticker: nil, error: error)
             }
             else if let ticker = tickers?.first
             {
-                callback(ticker: ticker, error: nil)
+                completionHandler(ticker: ticker, error: nil)
             }
             else
             {
-                callback(ticker: nil, error: nil)
+                completionHandler(ticker: nil, error: nil)
             }
         }
     }
     
-    func getOrderBook(instrument: Instrument, callback: (orderBook: OrderBook?, error: NSError?) -> () ) {}
+    func getOrderBook(instrument: Instrument, completionHandler: (orderBook: OrderBook?, error: NSError?) -> () )
+    {
+        let error = ABTradingError.MethodNotImplemented.error
+        log.error(error.description)
+        
+        completionHandler(orderBook: nil, error: error)
+    }
     
-    func getTrades(instrument: Instrument, callback: (trades: [Trade]?, error: NSError?) -> () ) {}
+    func getTrades(instrument: Instrument, completionHandler: (trades: [Trade]?, error: NSError?) -> () )
+    {
+        let error = ABTradingError.MethodNotImplemented.error
+        log.error(error.description)
+        
+        completionHandler(trades: nil, error: error)
+    }
     
     //MARK: - private order methods
-    
-    func getBalances(callback: (balances: [Balance]?, error: NSError?) -> () ) {}
-    
-    func addOrder(newOrder: Order, callback: (exchangeOrder: Order?, error: NSError?) -> () ) {}
-    
-    func cancelOrder(oldOrder: Order, callback: (error: NSError?) -> () ) {}
-    
-    func getOrder(exchangeId: String, callback: (exchangeOrder: Order?, error: NSError?) -> () ) {}
-    
-    func getOpenOrders(instrument: Instrument, callback: (exchangeOrder: Order?, error: NSError?) -> () ) {}
+    func getBalances(completionHandler: (balances: [Balance]?, error: NSError?) -> () )
+    {
+        let error = ABTradingError.MethodNotImplemented.error
+        log.error(error.description)
+        
+        completionHandler(balances: nil, error: error)
+    }
 }

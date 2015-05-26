@@ -57,7 +57,7 @@ class BTCMarkets : ExchangeAbstract, Exchange
     
     //MARK: - public market data methods
     
-    func getTicker(instrument: Instrument, callback: (ticker: Ticker?, error: NSError?) -> () )
+    func getTicker(instrument: Instrument, completionHandler: (ticker: Ticker?, error: NSError?) -> () )
     {
         log.debug("About to call \(self.name) ticker API")
         
@@ -69,7 +69,7 @@ class BTCMarkets : ExchangeAbstract, Exchange
                     log.error("Failed to call \(self.name) ticker API: " + error.description)
                     
                     //FIXME:- wrap Alamofire error before returning
-                    callback(ticker: nil, error: error)
+                    completionHandler(ticker: nil, error: error)
                     return
                 }
                 else if let json: AnyObject = json
@@ -98,7 +98,7 @@ class BTCMarkets : ExchangeAbstract, Exchange
                         // post ticker to any observers
                         NSNotificationCenter.defaultCenter().postNotificationName(ExchangeNotificationName.Ticker.rawValue, object: newTicker)
                         
-                        callback(ticker: newTicker, error: nil)
+                        completionHandler(ticker: newTicker, error: nil)
                         return
                     }
                     else
@@ -112,11 +112,11 @@ class BTCMarkets : ExchangeAbstract, Exchange
                 }
                 
                 //FIXME: - need to return an NSError
-                callback(ticker: nil, error: nil)
+                completionHandler(ticker: nil, error: nil)
         }
     }
     
-    func getOrderBook(instrument: Instrument, callback: (orderBook: OrderBook?, error: NSError?) -> () )
+    func getOrderBook(instrument: Instrument, completionHandler: (orderBook: OrderBook?, error: NSError?) -> () )
     {
         log.debug("About to call \(self.name) order book API")
         
@@ -127,7 +127,7 @@ class BTCMarkets : ExchangeAbstract, Exchange
                 {
                     log.error("Failed to call the \(self.name) order book API: " + error.description)
                     
-                    callback(orderBook: nil, error: error)
+                    completionHandler(orderBook: nil, error: error)
                 }
                 else if let json: AnyObject = json
                 {
@@ -148,7 +148,7 @@ class BTCMarkets : ExchangeAbstract, Exchange
                     // post order book to any observers
                     NSNotificationCenter.defaultCenter().postNotificationName(ExchangeNotificationName.OrderBook.rawValue, object: newOrderBook)
                     
-                    callback(orderBook: newOrderBook, error: nil)
+                    completionHandler(orderBook: newOrderBook, error: nil)
                 }
         }
     }
@@ -180,7 +180,7 @@ class BTCMarkets : ExchangeAbstract, Exchange
         return convertedOrders
     }
     
-    func getTrades(instrument: Instrument, callback: (trades: [Trade]?, error: NSError?) -> () )
+    func getTrades(instrument: Instrument, completionHandler: (trades: [Trade]?, error: NSError?) -> () )
     {
         Alamofire.request(BTCMarketsRouter.Trades(instrument))
             .responseJSON { (request, response, JSON, error) in
@@ -188,18 +188,18 @@ class BTCMarkets : ExchangeAbstract, Exchange
                 if error == nil
                 {
 //                    let new
-//                    callback(trades: [newTrade], error: nil)
+//                    completionHandler(trades: [newTrade], error: nil)
                 }
                 else
                 {
-                    callback(trades: nil, error: error)
+                    completionHandler(trades: nil, error: error)
                 }
         }
     }
     
     //MARK: - private order methods
     
-    func getBalances(callback: (balances: [Balance]?, error: NSError?) -> () )
+    func getBalances(completionHandler: (balances: [Balance]?, error: NSError?) -> () )
     {
         log.debug("About to call \(self.name) account balance API")
         
@@ -210,7 +210,7 @@ class BTCMarkets : ExchangeAbstract, Exchange
                 {
                     log.error("Failed to call the \(self.name) balance API: " + error.description)
                     
-                    callback(balances: [Balance](), error: error)
+                    completionHandler(balances: nil, error: error)
                 }
                 else if let data: AnyObject = data
                 {
@@ -222,7 +222,7 @@ class BTCMarkets : ExchangeAbstract, Exchange
                     {
                         //TODO:- construct a new NSError with nested Alamoire error and return in callback
                         log.error("Failed to call the \(self.name) balance API: " + errorMessage)
-                        return callback(balances: [Balance](), error: nil)
+                        return completionHandler(balances: nil, error: nil)
                     }
                     
                     if let exchangeBalances = json.array
@@ -267,7 +267,7 @@ class BTCMarkets : ExchangeAbstract, Exchange
                         self.accounts.first?.balances = newBalances
                         
                         // return newly instanciated balances in the callback
-                        callback(balances: newBalances, error: nil)
+                        completionHandler(balances: newBalances, error: nil)
                     }
                     else
                     {
@@ -275,25 +275,5 @@ class BTCMarkets : ExchangeAbstract, Exchange
                     }
                 }
         }
-    }
-    
-    func addOrder(newOrder: Order, callback: (exchangeOrder: Order?, error: NSError?) -> () )
-    {
-        
-    }
-    
-    func cancelOrder(oldOrder: Order, callback: (error: NSError?) -> () )
-    {
-        
-    }
-    
-    func getOrder(exchangeId: String, callback: (exchangeOrder: Order?, error: NSError?) -> () )
-    {
-        
-    }
-    
-    func getOpenOrders(instrument: Instrument, callback: (exchangeOrder: Order?, error: NSError?) -> () )
-    {
-        
     }
 }

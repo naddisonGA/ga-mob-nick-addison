@@ -52,27 +52,30 @@ class Bitfinex : ExchangeAbstract, Exchange
     
     //MARK: - public market data methods
     
-    func getTicker(instrument: Instrument, callback: (ticker: Ticker?, error: NSError?) -> () )
+    func getTicker(instrument: Instrument, completionHandler: (ticker: Ticker?, error: NSError?) -> () )
     {
-        log.debug("About to call \(self.name) ticker API")
+        let methodDescription = "\(self.name) Ticker API for \(instrument.code(.UpperCase))"
+        
+        log.debug("About to call \(methodDescription)")
+        
+        var returnError: NSError? = nil
+        var newTicker: Ticker? = nil
         
         Alamofire.request(BitfinexRouter.Ticker(instrument))
-            .responseJSON { (request, response, json, error) in
+            .responseJSON
+            {
+                request, response, json, error in
                 
                 if let error = error
                 {
-                    log.error("Failed to call \(self.name) ticker API: " + error.description)
-                    
-                    //FIXME:- wrap Alamofire error before returning
-                    callback(ticker: nil, error: error)
-                    return
+                    returnError = ABTradingError.Create("\(methodDescription) failed with error: \(error.description))").error
                 }
                 else if let json: AnyObject = json
                 {
                     // convert into a SwiftJSON struct
                     let json = JSON(json)
                     
-                    log.debug("Successfully called \(self.name) ticker API. JSON: " + json.description)
+                    log.debug("Successfully called \(methodDescription). JSON:\n\(json.description)")
                     
                     if  let askStr = json["ask"].string,
                         let bidStr = json["bid"].string,
@@ -81,7 +84,7 @@ class Bitfinex : ExchangeAbstract, Exchange
                     {
                         let timestamp: NSTimeInterval = (timestampStr as NSString).doubleValue
                         
-                        let newTicker = Ticker(
+                        newTicker = Ticker(
                             exchange: self as Exchange,
                             instrument: instrument,
                             ask: (askStr as NSString).doubleValue,
@@ -94,103 +97,132 @@ class Bitfinex : ExchangeAbstract, Exchange
                         
                         // post ticker to any observers
                         NSNotificationCenter.defaultCenter().postNotificationName(ExchangeNotificationName.Ticker.rawValue, object: newTicker)
-                        
-                        callback(ticker: newTicker, error: nil)
-                        return
                     }
                     else
                     {
-                        log.error("Failed to parse \(self.name) ticker data");
+                        returnError = ABTradingError.Create("\(methodDescription) failed. Could not parse ticker data: \(json.description)").error
                     }
                 }
                 else
                 {
-                    log.error("Failed to call \(self.name) ticker API. No JSON data was returned")
+                    returnError = ABTradingError.Create("\(methodDescription) failed. No JSON data was returned").error
                 }
                 
-                //FIXME: - need to return an NSError
-                callback(ticker: nil, error: nil)
-        }
+                if let error = returnError {
+                    log.error(error.debugDescription)
+                }
+                
+                completionHandler(ticker: newTicker, error: returnError)
+            }
     }
 
     
-    func getOrderBook(instrument: Instrument, callback: (orderBook: OrderBook?, error: NSError?) -> () )
+    func getOrderBook(instrument: Instrument, completionHandler: (orderBook: OrderBook?, error: NSError?) -> () )
     {
-        log.debug("About to call BTCM Markets order book API")
+        let methodDescription = "\(self.name) Order Book API for \(instrument.code(.UpperCase))"
+        
+        log.debug("About to call " + methodDescription)
+        
+        var returnError: NSError? = nil
+        var newOrderBook: OrderBook? = nil
         
         Alamofire.request(BitfinexRouter.OrderBook(instrument))
-            .responseJSON { (request, response, json, error) in
+            .responseJSON
+            {
+                request, response, json, error in
                 
                 if let error = error
                 {
-                    log.error("Failed to call the BTCM Markets order book API: " + error.description)
-                    
-                    callback(orderBook: nil, error: error)
+                    returnError = ABTradingError.Create("\(methodDescription) failed with error: \(error.description)").error
                 }
                 else if let json: AnyObject = json
                 {
                     let json = JSON(json)
                     
-                    log.debug("Successfully called BTCM Markets order book API")
+                    log.debug("Successfully called \(methodDescription)")
                     
-                    let bids = self.convertOrdersInOrderBook(json["bids"])
-                    let asks = self.convertOrdersInOrderBook(json["asks"])
+                    let (bids, bidError) = self.convertOrdersInOrderBook(json["bids"])
+                    let (asks, askError) = self.convertOrdersInOrderBook(json["asks"])
                     
-                    let newOrderBook = OrderBook(
-                        bids: bids,
-                        asks: asks,
-                        timestamp: NSDate(timeIntervalSince1970: json["timestamp"].number as! NSTimeInterval))
-                    
-                    self.markets[instrument]?.latestOrderBook = newOrderBook
-                    
-                    // post order book to any observers
-                    NSNotificationCenter.defaultCenter().postNotificationName(ExchangeNotificationName.OrderBook.rawValue, object: newOrderBook)
-                    
-                    callback(orderBook: newOrderBook, error: nil)
+                    if (bidError != nil)
+                    {
+                        returnError = bidError
+                    }
+                    else if (askError != nil)
+                    {
+                        returnError = askError
+                    }
+                    else
+                    {
+                        newOrderBook = OrderBook(
+                            bids: bids,
+                            asks: asks,
+                            timestamp: NSDate())
+                        
+                        self.markets[instrument]?.latestOrderBook = newOrderBook
+                        
+                        // post order book to any observers
+                        NSNotificationCenter.defaultCenter().postNotificationName(ExchangeNotificationName.OrderBook.rawValue, object: newOrderBook)
+                    }
                 }
+                else
+                {
+                    returnError = ABTradingError.Create("\(methodDescription) failed. No JSON data was returned").error
+                }
+                
+                if let error = returnError {
+                    log.error(error.debugDescription)
+                }
+                
+                completionHandler(orderBook: newOrderBook, error: returnError)
         }
     }
     
-    private func convertOrdersInOrderBook(orders: JSON) -> [OrderBookOrder]
+    private func convertOrdersInOrderBook(orders: JSON) -> ([OrderBookOrder], NSError?)
     {
         // initialize an empty array of order book orders
         var convertedOrders = [OrderBookOrder]()
+        
+        var error: NSError? = nil
         
         // for each order in the array of orders
         for (index: String, order: JSON) in orders
         {
             // get price and quantity from the order array
-            if  let price = order[0].double,
-                let quantity =  order[0].double
+            if  let price = order["price"].string,
+                let quantity =  order["amount"].string
             {
                 // add converted order to the array that will be returned
                 convertedOrders.append(OrderBookOrder(
-                    price: price,
-                    quantity: quantity
+                    price: (price as NSString).doubleValue,
+                    quantity: (quantity as NSString).doubleValue
                     ))
             }
             else
             {
-                log.debug("Could not parse price or quantity. Price error: \(order[0].error). Quantity error \(order[1].error)")
+                error = ABTradingError.Create("Could not parse price or amount in order.\nJSON:\n\(order)").error
+                break
             }
         }
         
-        return convertedOrders
+        return (convertedOrders, error)
     }
     
-    func getTrades(instrument: Instrument, callback: (trades: [Trade]?, error: NSError?) -> () )
+    func getTrades(instrument: Instrument, completionHandler: (trades: [Trade]?, error: NSError?) -> () )
     {
         Alamofire.request(BTCMarketsRouter.Trades(instrument))
-            .responseJSON { (request, response, JSON, error) in
+            .responseJSON
+            {
+                request, response, JSON, error in
                 
                 if error == nil
                 {
 //                    let new
-//                    callback(trades: [newTrade], error: nil)
+//                    completionHandler(trades: [newTrade], error: nil)
                 }
                 else
                 {
-                    callback(trades: nil, error: error)
+                    completionHandler(trades: nil, error: error)
                 }
         }
     }
@@ -198,37 +230,37 @@ class Bitfinex : ExchangeAbstract, Exchange
     //MARK: - private order methods
     
     
-    func getBalances(callback: (balances: [Balance]?, error: NSError?) -> () )
+    func getBalances(completionHandler: (balances: [Balance]?, error: NSError?) -> () )
     {
-        log.debug("About to call \(self.name) account balance API")
+        let methodDescription = "\(self.name) Balances API"
+        
+        log.debug("About to call " + methodDescription)
+        
+        var returnError: NSError? = nil
+        var newBalances = [Balance]()
         
         Alamofire.request(BitfinexRouter.Balances())
-            .responseJSON { (request, response, data, error) in
+            .responseJSON
+            {
+                request, response, data, error in
                 
                 if let error = error
                 {
-                    log.error("Failed to call the \(self.name) balance API: " + error.description)
-                    
-                    callback(balances: [Balance](), error: error)
+                    returnError = ABTradingError.Create("\(methodDescription) failed. Error: \(error.description)").error
                 }
                 else if let data: AnyObject = data
                 {
                     let json = JSON(data)
                     
-                    log.debug("json response from \(self.name) balances API: \(json.description)")
+                    log.debug("Successfully called \(methodDescription). JSON: \(json.description)")
                     
                     if let errorMessage = json["message"].string
                     {
-                        //TODO: construct a new NSError with nested Alamoire error and return in callback
-                        log.error("Failed to call the \(self.name) balance API: " + errorMessage)
-                        return callback(balances: [Balance](), error: nil)
+                        let returnError = ABTradingError.Create("\(methodDescription) failed. Error message: \(errorMessage)").error
                     }
-                    
-                    if let exchangeBalances = json.array
+                    else if let exchangeBalances = json.array
                     {
                         log.debug("Successfully retireved \(exchangeBalances.count) account balances from \(self.name)")
-                        
-                        var newBalances = [Balance]()
                         
                         for balance in exchangeBalances
                         {
@@ -236,6 +268,7 @@ class Bitfinex : ExchangeAbstract, Exchange
                                 let walletType: String = balance["type"].string
                             {
                                 // continue to next loop if wallet type is trading or deposit
+                                //TODO: this needs to loop through each wallet/account
                                 if walletType != "exchange" { continue }
                                 
                                 if let currency = CurrencyManager.sharedCurrencyManager.find(currencyCode)
@@ -252,16 +285,18 @@ class Bitfinex : ExchangeAbstract, Exchange
                                     }
                                     else
                                     {
-                                        //TODO:- log error
-                                        println("could not parse the balance or available fields")
+                                        returnError = ABTradingError.Create("\(methodDescription) failed. Could not parse the amount and/or available fields in balance JSON:n\(balance.description)").error
                                     }
+                                }
+                                else
+                                {
+                                    returnError = ABTradingError.Create("\(methodDescription) failed. Currency \(currencyCode) has not been configured").error
                                 }
                             }
                             else
                             {
-                                println(balance["currency"].error)
+                                returnError = ABTradingError.Create("\(methodDescription) failed. Could not parse the currency and/or type field in balance JSON:\n\(balance.description)").error
                             }
-                            
                         }
                         
                         // add new balances to the Exchange account
@@ -269,35 +304,22 @@ class Bitfinex : ExchangeAbstract, Exchange
                         // for now will assume there is only one account on the exchange.
                         // that is, the balances belong to the first account
                         self.accounts.first?.balances = newBalances
-                        
-                        // return newly instanciated balances in the callback
-                        callback(balances: newBalances, error: nil)
                     }
                     else
                     {
-                        //TODO: log error and return in callback
+                        returnError = ABTradingError.Create("\(methodDescription) failed. Could not parse JSON array: \(json.description)").error
                     }
                 }
+                else
+                {
+                    returnError = ABTradingError.Create("\(methodDescription) failed. No JSON data was returned").error
+                }
+                
+                if let error = returnError {
+                    log.error(error.debugDescription)
+                }
+                
+                completionHandler(balances: newBalances, error: returnError)
         }
-    }
-    
-    func addOrder(newOrder: Order, callback: (exchangeOrder: Order?, error: NSError?) -> () )
-    {
-        
-    }
-    
-    func cancelOrder(oldOrder: Order, callback: (error: NSError?) -> () )
-    {
-        
-    }
-    
-    func getOrder(exchangeId: String, callback: (exchangeOrder: Order?, error: NSError?) -> () )
-    {
-        
-    }
-    
-    func getOpenOrders(instrument: Instrument, callback: (exchangeOrder: Order?, error: NSError?) -> () )
-    {
-        
     }
 }

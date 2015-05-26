@@ -14,6 +14,8 @@ class ExchangeManagerTests: XCTestCase
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        ExchangeManager.sharedExchangeManager.exchanges = defaultExchangeManagerExchanges
     }
     
     override func tearDown() {
@@ -33,7 +35,7 @@ class ExchangeManagerTests: XCTestCase
             expectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(20) { (error) in
+        waitForExpectationsWithTimeout(30) { (error) in
             // don't need to do anything after the tests are completed
         }
     }

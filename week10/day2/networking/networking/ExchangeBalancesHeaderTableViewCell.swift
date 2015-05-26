@@ -11,6 +11,7 @@ import UIKit
 class ExchangeBalancesHeaderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var exchangeNameField: UILabel!
+    @IBOutlet weak var exchangeAUDTotalField: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

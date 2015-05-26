@@ -30,7 +30,7 @@ class HMACTests: XCTestCase
     
     func testBase64SecretDigestHMAC512()
     {
-        let hmac = HMAC(algorithm: .SHA512, secretEncoding: .Base64,
+        let hmac = HMAC(algorithm: .SHA512, secretDecoding: .Base64,
             messageEncoding: .UTF8, digestEncoding: .Base64)
         
         // test message is a JSON string:

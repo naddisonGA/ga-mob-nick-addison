@@ -9,9 +9,6 @@
 import Foundation
 import Alamofire
 
-// Implementation of the Bitfinex Bitcoin exchange REST API
-// https://www.bitfinex.com/pages/api
-
 enum BitfinexRouter: URLRequestConvertible
 {
     //MARK:- static variables
@@ -22,8 +19,10 @@ enum BitfinexRouter: URLRequestConvertible
     
     static let baseURLString = "https://api.bitfinex.com"
     static let version = "/v1/"
+    
     static let userAgent = "Bitfinex Swift API Client"
-    static let signer = HMAC(algorithm: .SHA384, secretEncoding: .UTF8, messageEncoding: .Base64, digestEncoding: .Hex)
+    
+    static let signer = HMAC(algorithm: .SHA384, secretDecoding: .UTF8, messageEncoding: .Base64, digestEncoding: .Hex)
     
     //MARK:- enumerated cases
     

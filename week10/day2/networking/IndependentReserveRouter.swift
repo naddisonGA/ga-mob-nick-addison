@@ -25,7 +25,7 @@ enum IndependentReserveRouter: URLRequestConvertible
     //static let baseURLString = "http://dev.api.independentreserve.com"
     
     static let userAgent = "Independent Reserve Swift API Client"
-    static let signer = HMAC(algorithm: .SHA256, secretEncoding: .UTF8, messageEncoding: .UTF8, digestEncoding: .Hex)
+    static let signer = HMAC(algorithm: .SHA256, secretDecoding: .UTF8, messageEncoding: .UTF8, digestEncoding: .Hex)
     
     //MARK:- enumerated cases
     

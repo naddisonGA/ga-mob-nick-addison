@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0864279F19C5BF2B5E9F2F5E"
+               BlueprintIdentifier = "04979A55826DB8DBD1966B90"
                BuildableName = "TaskQueue.framework"
                BlueprintName = "Pods-TaskQueue"
                ReferencedContainer = "container:Pods.xcodeproj">

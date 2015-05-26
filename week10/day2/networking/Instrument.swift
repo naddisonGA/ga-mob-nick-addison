@@ -63,19 +63,3 @@ public class Instrument: Hashable
         return code(.UnderscoreUpperCase)
     }
 }
-
-let AUDUSD = Instrument(base: AUD, quote: USD)
-let USDAUD = Instrument(base: USD, quote: AUD)
-let AUDCNY = Instrument(base: AUD, quote: CNY)
-let CNYAUD = Instrument(base: CNY, quote: AUD)
-let USDCNY = Instrument(base: USD, quote: CNY)
-let CNYUSD = Instrument(base: CNY, quote: USD)
-let USDCNH = Instrument(base: USD, quote: CNH)
-let BTCAUD = Instrument(base: BTC, quote: AUD)
-let BTCUSD = Instrument(base: BTC, quote: USD)
-let BTCCNY = Instrument(base: BTC, quote: CNY)
-let LTCAUD = Instrument(base: LTC, quote: AUD)
-let LTCUSD = Instrument(base: LTC, quote: USD)
-let LTCBTC = Instrument(base: LTC, quote: BTC)
-let DRKUSD = Instrument(base: DRK, quote: USD)
-let DRKAUD = Instrument(base: DRK, quote: AUD)

@@ -13,7 +13,9 @@ class CurrencyManager
 {
     static let sharedCurrencyManager = CurrencyManager()
     
-    var currencies = [AUD, USD, BTC, LTC, DRK]
+    //var currencies = [Currency]()
+    //var currencies = [AUD, USD, CNY, NZD, BTC, LTC, DRK]
+    var currencies = defaultCurrencyManagerCurrencies
     
     func find(assetCode: String) -> Currency?
     {
@@ -25,11 +27,3 @@ class CurrencyManager
         return currencies.filter { $0.type == type }
     }
 }
-
-let AUD = Currency(code: "AUD", name: "Australian Dollar", type: .Fiat)
-let USD = Currency(code: "USD", name: "United States Dollar", type: .Fiat)
-let CNY = Currency(code: "CNY", name: "China Yuan Renminbi", type: .Fiat)
-let CNH = Currency(code: "CNH", name: "China Yuan Renminbi Hong Kong", type: .Fiat)
-let BTC = Currency(code: "BTC", name: "Bitcoin", type: .Crypto, percision: 8)
-let LTC = Currency(code: "LTC", name: "Litecoin", type: .Crypto, percision: 8)
-let DRK = Currency(code: "DRK", name: "Darkcoin", type: .Crypto, percision: 8)

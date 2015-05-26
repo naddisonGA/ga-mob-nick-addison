@@ -12,30 +12,21 @@ import Dollar
 /// Singleton of configured exchanges
 class ExchangeManager
 {
-    private var _exchanges: [Exchange] = [btcMarkets, bitfinex, independentReserve]
-    
-    var exchanges: [Exchange] {
-        return _exchanges
-    }
+    var exchanges = [Exchange]()
     
     static let sharedExchangeManager = ExchangeManager()
     
     func findExchange(exchangeName: String) -> Exchange?
     {
-        return $.find(_exchanges) { $0.name == exchangeName }
+        return $.find(exchanges) { $0.name == exchangeName }
     }
     
-    func addExchange(exchange: Exchange)
-    {
-        _exchanges.append(exchange)
-    }
-    
-    // gets the balances from all the configured exchanges in parallel
+    // gets the latest balances from all the configured exchanges asynchronously in parallel
     // the callback is called when either
-    // 1. all exchange balances have been retreived
+    // 1. all exchange balances have been retreived from all the exchanges
     // 2. there is an error from one of the exchanges
     // note that the callback will only be called once if there are multiple errors across the exchanges. The first error received will be returned and the supsequant errors will be ignored as the callback has already been called
-    func getAllBalances(completionHandler: (error: NSError?) -> ())
+    func getAllBalances(completionHandler: (error: NSError?) -> () )
     {
         func iteratorFunc(exchange: Exchange, iteratorCompletionHandler: (balances: [Balance]?, error: NSError?) -> () )
         {
@@ -43,7 +34,7 @@ class ExchangeManager
         }
         
         Async.each(
-            _exchanges,
+            exchanges,
             iterator: iteratorFunc)
         {
             (balances: [Balance]?, error) in
@@ -51,39 +42,33 @@ class ExchangeManager
             completionHandler(error: error)
         }
     }
+    
+    // sums the cached balances converted to the desired currency across all the configred exchanges
+    // this is a synchronous method. The latest balances are not retrived from the exchanges
+    func totalBalance(convertedTo: Asset) -> (Double?, NSError?)
+    {
+        var totalBalance: Double = 0
+        
+        // for each configured exchange
+        for exchange in exchanges
+        {
+            // synchronously sum the cached exchange balances using the cached exchange rates
+            let (summedBalance, error) = exchange.summedBalances(convertedTo)
+            
+            if let summedBalance = summedBalance
+            {
+                totalBalance += summedBalance.total
+            }
+            else if let error = error
+            {
+                log.error(error.debugDescription)
+                
+                // if a required exchange rate has not been cached
+                return (nil, error)
+            }
+            
+        }
+        
+        return (totalBalance, nil)
+    }
 }
-
-//MARK:- exhcange instances
-
-// instance of BTC Markets
-let independentReserve = IndependentReserve (
-    name: "Independent Reserve",
-    instruments: [BTCAUD, BTCUSD],
-    commissionRates: ExchangeCommissionRates(rates: [USD: 0.001, AUD: 0.001, BTC: 0.001]),
-    feeChargedIn: .QuoteAsset,
-    accounts: [Account(username: "nick@addisonbrown.com.au", assets: [USD, AUD, BTC])] )
-
-// instance of BTC Markets
-let btcMarkets = BTCMarkets(
-    name: "BTC Markets",
-    instruments: [BTCAUD, LTCAUD, LTCBTC],
-    commissionRates: ExchangeCommissionRates(rates: [AUD: 0.001, BTC: 0.001, LTC: 0.001]),
-    feeChargedIn: .QuoteAsset,
-    accounts: [Account(username: "nick@addisonbrown.com.au", assets: [AUD, BTC, LTC])] )
-
-// instance of BTC Markets
-let bitfinex = Bitfinex(
-    name: "Bitfinex",
-    instruments: [BTCUSD, LTCUSD, LTCBTC],
-    //FIXME: - need to handle maker and taker commissions
-    commissionRates: ExchangeCommissionRates(rates: [AUD: 0.002, USD: 0.002, BTC: 0.002]),
-    feeChargedIn: .BuyAsset,
-    accounts: [Account(username: "nick@addisonbrown.com.au", assets: [USD, BTC, LTC, DRK])] )
-
-// instance of BTC Markets
-let oandaPractice = Oanda(
-    name: "OandA",
-    //FIXME: - need to handle CFD fees all in USD
-    feeChargedIn: .QuoteAsset,
-    commissionRates: ExchangeCommissionRates(rates: [AUD: 0.002, USD: 0.002, BTC: 0.002]),
-    environment: .Practice )

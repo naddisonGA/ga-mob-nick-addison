@@ -24,13 +24,36 @@ class ExchangeBalancesTableViewController: UITableViewController {
     func getAllBalances()
     {
         self.refreshControl?.beginRefreshing()
+        var completedTasks = 0
         
-        ExchangeManager.sharedExchangeManager.getAllBalances {
-            (erorr) in
+        //TODO: async.parallel
+        ExchangeManager.sharedExchangeManager.getAllBalances
+        {
+            erorr in
+            
+            //FIXME: display error
+            //self.UIAlertController()
+            
+            self.tableView.reloadData()
+            
+            if ++completedTasks >= 2
+            {
+                self.refreshControl?.endRefreshing()
+            }
+        }
+        
+        AssetExchanger.sharedAssetExchanger.updateTickers()
+        {
+            error in
+            
             //FIXME: display error
             
             self.tableView.reloadData()
-            self.refreshControl?.endRefreshing()
+            
+            if ++completedTasks >= 2
+            {
+                self.refreshControl?.endRefreshing()
+            }
         }
     }
 
@@ -74,14 +97,36 @@ class ExchangeBalancesTableViewController: UITableViewController {
     {
         if indexPath.section == 0
         {
-            return tableView.dequeueReusableCellWithIdentifier("exchangeBalancesTotalsCell", forIndexPath: indexPath) as! UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("exchangeBalancesTotalsCell", forIndexPath: indexPath) as! ExchangeBalancesTotalTableViewCell
+            
+            let (audTotal, error) = ExchangeManager.sharedExchangeManager.totalBalance(AUD)
+            
+            if let audTotal = audTotal
+            {
+                cell.audTotalField.text = String(format: "%.2f", audTotal)
+            }
+            
+            return cell
         }
         
         if indexPath.row == 0
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("exchangeBalancesHeaderCell", forIndexPath: indexPath) as! ExchangeBalancesHeaderTableViewCell
             
-            cell.exchangeNameField.text = ExchangeManager.sharedExchangeManager.exchanges[indexPath.section - 1].name
+            let exchange = ExchangeManager.sharedExchangeManager.exchanges[indexPath.section - 1]
+            
+            cell.exchangeNameField.text = exchange.name
+            
+            let (audBalance, error) = exchange.summedBalances(AUD)
+            
+            if let audBalance = audBalance
+            {
+                cell.exchangeAUDTotalField.text = String(format: "%.2f", audBalance.total)
+            }
+            else
+            {
+                cell.exchangeAUDTotalField.text = nil
+            }
             
             return cell
         }
@@ -93,6 +138,7 @@ class ExchangeBalancesTableViewController: UITableViewController {
             
             cell.currencyField.text = cellBalance.asset.code
             
+            // format balance amount depending on the type of currency. ie crypto or fiat
             if (cellBalance.asset as! Currency).type == .Crypto
             {
                 cell.availableField.text = String(format: "%.4f", cellBalance.available)
@@ -102,6 +148,16 @@ class ExchangeBalancesTableViewController: UITableViewController {
             {
                 cell.availableField.text = String(format: "%.2f", cellBalance.available)
                 cell.totalField.text = String(format: "%.2f", cellBalance.total)
+            }
+            
+            // set AUD field
+            if let aud = AssetExchanger.sharedAssetExchanger.getRate(cellBalance.asset, toAsset: AUD)
+            {
+                cell.audField.text = String(format: "%.2f", aud * cellBalance.total)
+            }
+            else
+            {
+                cell.audField.text = nil
             }
             
             return cell

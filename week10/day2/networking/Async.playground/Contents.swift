@@ -2,9 +2,8 @@
 
 import UIKit
 
+
 var str = "Hello, playground"
-
-
 
 class Async
 {
@@ -51,22 +50,66 @@ class Async
             }
         }
     }
+    
+    static func series(
+        // array of functions with take a callback function as their parameters
+        // the callback function takes optional NSError and AnyObject
+        tasks: [(callback: (error: NSError?, result: Any?) ->() ) -> ()],
+        completionHandler: ([AnyObject]?, NSError?) -> () )
+    {
+        var tasksProcessed = 0
+        var resultArray = [Any?]()
+        var resultError: NSError? = nil
+        
+        var iterate: (()->())!
+        // then set iterate variable to the real iterate fucntion
+        iterate =
+            {
+                tasks[tasksProcessed]
+                
+                // resultArray[tasksProcessed]
+        }
+        
+        // start the first iteration
+        iterate()
+    }
 }
 
-func fib(n: Int) -> Int {
-    return n < 2 ? n : (fib(n — 1) + fib(n — 2))
-}
-println(fib(10))
 
-
-func factorial(n: Int) -> Int {
-    return n == 0 ? 1 : n * factorial(n — 1)
+func add(a: Int, b: Int) -> Int
+{
+    return a + b
 }
 
-func sum(n: Int, acc: Int) -> Int {
-    if n == 0 { return acc }
-    else { return sum(n - 1, acc + 1) }
+func minus(a: Int, b: Int) -> Int
+{
+    return a - b
 }
 
-println(factorial(5))
+add(1, 2)
+minus(1, 2)
+
+let funcArray = [add, minus]
+
+funcArray[0](1,1)
+
+
+func log(txt: String, #resolve: () -> (), #reject: () -> ()) {
+    var delta: Int64 = 1 * Int64(NSEC_PER_SEC)
+    var time = dispatch_time(DISPATCH_TIME_NOW, delta)
+    
+    dispatch_after(time, dispatch_get_main_queue(), {
+        println("closures are " + txt)
+        resolve()
+    });
+}
+
+log("not the same as JS closures",
+    resolve: {
+        println("and done")
+    },
+    reject: {
+        // handle errors
+})
+
 

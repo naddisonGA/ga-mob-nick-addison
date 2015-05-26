@@ -9,12 +9,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Cent.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-Dollar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Parse.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ParseUI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,37 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0864279F19C5BF2B5E9F2F5E</key>
+		<key>04979A55826DB8DBD1966B90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4BE88E01223DAA97992AAB4F</key>
+		<key>19F59CD7FCFBE8A74E24BF4D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C39E4BA83079E171D73609D</key>
+		<key>2691726E54494C41771244A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>80F2049E8F07EFC3FADFCBCA</key>
+		<key>4A4624B26530CFAC592712AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EBBF23452431A6885995951</key>
+		<key>4B52DA2F87740C4F63E84B98</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BAF0F03F47B64E9845D8C971</key>
+		<key>AF2A869D6424AA9683FAC773</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F4FA9D733406107C325AF8C5</key>
+		<key>B3A435143E0FBC249B5D51D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C63495D02FCB31E0F09829AC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E9B4DCF638EBE436FC9112CD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE1A3FF6E8F54D47E3099804</key>
 		<dict>
 			<key>primary</key>
 			<true/>

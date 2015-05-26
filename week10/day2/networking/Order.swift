@@ -121,10 +121,7 @@ public class Order: OrderAbstract
         }
         else
         {
-            let error = Error(code: Errors.OrderOpen.rawValue,
-                userInfo: [
-                    NSLocalizedDescriptionKey: "Can not open order with exchange identifier \(exchangeId) in state \(self._state)",
-                    NSLocalizedFailureReasonErrorKey: "An order has to be in a Pending state for it to be openned."])
+            let error = ABTradingError.Order_Open_StateNotPending(self.exchange.name, self.exchangeId, self._state).error
             
             NSLog(error.debugDescription)
             return error
@@ -163,11 +160,7 @@ public class Order: OrderAbstract
             return nil
             
         default:
-            let error = Error(code: Errors.OrderCancel.rawValue,
-                userInfo: [
-                    NSLocalizedDescriptionKey: "Can not cancel order with in state \(self._state)",
-                    NSLocalizedFailureReasonErrorKey: "An order has to be in an Open or PartiallyFilled state for it to be cancelled."])
-            
+            let error = ABTradingError.Order_Cancel_StateNotOpenOrPartiallyFilled(self).error
             NSLog(error.debugDescription)
             return error
         }

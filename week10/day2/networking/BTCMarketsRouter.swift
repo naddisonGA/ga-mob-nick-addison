@@ -30,7 +30,7 @@ enum BTCMarketsRouter: URLRequestConvertible
     
     static var apiKey: ApiKey?
     
-    static let signer = HMAC(algorithm: .SHA512, secretEncoding: .Base64, messageEncoding: .UTF8, digestEncoding: .Base64)
+    static let signer = HMAC(algorithm: .SHA512, secretDecoding: .Base64, messageEncoding: .UTF8, digestEncoding: .Base64)
     
     //MARK:- enumerated cases
     

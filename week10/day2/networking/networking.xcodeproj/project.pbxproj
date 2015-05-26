@@ -12,12 +12,11 @@
 		0106779A1AFAE366008F1E67 /* Bitfinex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010677991AFAE366008F1E67 /* Bitfinex.swift */; };
 		0106779B1AFAEE3F008F1E67 /* Bitfinex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010677991AFAE366008F1E67 /* Bitfinex.swift */; };
 		0129D1831AF22BD600749867 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1821AF22BD600749867 /* AppDelegate.swift */; };
-		0129D1881AF22BD600749867 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0129D1861AF22BD600749867 /* Main.storyboard */; };
 		0129D18A1AF22BD600749867 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0129D1891AF22BD600749867 /* Images.xcassets */; };
 		0129D18D1AF22BD600749867 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0129D18B1AF22BD600749867 /* LaunchScreen.xib */; };
 		0129D1991AF22BD600749867 /* ExchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1981AF22BD600749867 /* ExchangeTests.swift */; };
 		0129D1A41AF232AE00749867 /* ExchangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1A31AF232AE00749867 /* ExchangeManager.swift */; };
-		0129D1B51AF2333E00749867 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1A61AF2333E00749867 /* Errors.swift */; };
+		0129D1B51AF2333E00749867 /* ABTradingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1A61AF2333E00749867 /* ABTradingError.swift */; };
 		0129D1B61AF2333E00749867 /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1A71AF2333E00749867 /* Trade.swift */; };
 		0129D1B71AF2333E00749867 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1A81AF2333E00749867 /* Ticker.swift */; };
 		0129D1B81AF2333E00749867 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1A91AF2333E00749867 /* Order.swift */; };
@@ -31,20 +30,18 @@
 		0129D1C01AF2333E00749867 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1B11AF2333E00749867 /* Account.swift */; };
 		0129D1C21AF2333E00749867 /* OrderBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1B31AF2333E00749867 /* OrderBook.swift */; };
 		0129D1C31AF2333E00749867 /* OrderAbstract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1B41AF2333E00749867 /* OrderAbstract.swift */; };
-		013D74361AF3003B00232673 /* ExchangeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D74351AF3003B00232673 /* ExchangeDelegate.swift */; };
 		013D743A1AF303AB00232673 /* BTCMarkets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D74391AF303AB00232673 /* BTCMarkets.swift */; };
 		013D743E1AF337F400232673 /* ExchangeAbstract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D743D1AF337F400232673 /* ExchangeAbstract.swift */; };
 		013D74B91AF5E5FA00232673 /* BTCMarketsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D74B81AF5E5FA00232673 /* BTCMarketsRouter.swift */; };
 		013D74BB1AF6562C00232673 /* BitfinexRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D74BA1AF6562C00232673 /* BitfinexRouter.swift */; };
 		013D74D11AF6E49800232673 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45600EDF2AC678FCECA39BD1 /* Pods.framework */; };
 		013D75081AF718EF00232673 /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1AE1AF2333E00749867 /* Exchange.swift */; };
-		013D75091AF718EF00232673 /* ExchangeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D74351AF3003B00232673 /* ExchangeDelegate.swift */; };
 		013D750A1AF718EF00232673 /* ExchangeAbstract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D743D1AF337F400232673 /* ExchangeAbstract.swift */; };
 		013D750B1AF718EF00232673 /* ExchangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1A31AF232AE00749867 /* ExchangeManager.swift */; };
 		013D750C1AF718EF00232673 /* BTCMarkets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D74391AF303AB00232673 /* BTCMarkets.swift */; };
 		013D750D1AF718EF00232673 /* BTCMarketsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D74B81AF5E5FA00232673 /* BTCMarketsRouter.swift */; };
 		013D750E1AF718EF00232673 /* BitfinexRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D74BA1AF6562C00232673 /* BitfinexRouter.swift */; };
-		013D750F1AF718EF00232673 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1A61AF2333E00749867 /* Errors.swift */; };
+		013D750F1AF718EF00232673 /* ABTradingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1A61AF2333E00749867 /* ABTradingError.swift */; };
 		013D75101AF718EF00232673 /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1AD1AF2333E00749867 /* Instrument.swift */; };
 		013D75111AF718EF00232673 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1AF1AF2333E00749867 /* Currency.swift */; };
 		013D75121AF718EF00232673 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129D1AB1AF2333E00749867 /* Asset.swift */; };
@@ -65,21 +62,53 @@
 		013D75271AF79BD800232673 /* module.map in Sources */ = {isa = PBXBuildFile; fileRef = 013D75251AF797B300232673 /* module.map */; };
 		013D75291AF7A56200232673 /* HMACAAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D75281AF7A56200232673 /* HMACAAlgorithm.swift */; };
 		013D752A1AF7ACF300232673 /* HMACAAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013D75281AF7A56200232673 /* HMACAAlgorithm.swift */; };
-		0140B4821AFC44AC002142FB /* AbstractExchangeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B4811AFC44AC002142FB /* AbstractExchangeRouter.swift */; };
-		0140B4831AFC44F2002142FB /* AbstractExchangeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B4811AFC44AC002142FB /* AbstractExchangeRouter.swift */; };
 		0140B4851AFC5E63002142FB /* ExchangeBalancesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B4841AFC5E63002142FB /* ExchangeBalancesTableViewController.swift */; };
 		0140B4871AFC684A002142FB /* ExchangeBalancesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B4861AFC684A002142FB /* ExchangeBalancesTableViewCell.swift */; };
 		0140B4891AFC6B93002142FB /* ExchangeBalancesHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B4881AFC6B93002142FB /* ExchangeBalancesHeaderTableViewCell.swift */; };
 		0140B48B1AFC765F002142FB /* ExchangeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B48A1AFC765F002142FB /* ExchangeManagerTests.swift */; };
 		0140B48D1AFC947E002142FB /* IndependentReserveRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B48C1AFC947E002142FB /* IndependentReserveRouter.swift */; };
+		014A0F401B0608EE0001E385 /* AsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014A0F3F1B0608EE0001E385 /* AsyncTests.swift */; };
 		016EA8501AF867C400940CB6 /* BinaryEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016EA84F1AF867C400940CB6 /* BinaryEncoding.swift */; };
 		016EA8521AF867E700940CB6 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016EA8511AF867E700940CB6 /* HMAC.swift */; };
 		016EA8551AF894F000940CB6 /* BinaryEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016EA8541AF894F000940CB6 /* BinaryEncodingTests.swift */; };
 		016EA8561AF8958700940CB6 /* BinaryEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016EA84F1AF867C400940CB6 /* BinaryEncoding.swift */; };
 		016EA8571AF8A1F400940CB6 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016EA8511AF867E700940CB6 /* HMAC.swift */; };
 		016EA8591AF8ACA700940CB6 /* HMACTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016EA8581AF8ACA700940CB6 /* HMACTests.swift */; };
+		01A1CD4F1B148F94004DDE6D /* ExposureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD4A1B148F94004DDE6D /* ExposureManager.swift */; };
+		01A1CD501B148F94004DDE6D /* BankBalanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD4B1B148F94004DDE6D /* BankBalanceManager.swift */; };
+		01A1CD521B148F94004DDE6D /* HedgePositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD4D1B148F94004DDE6D /* HedgePositionManager.swift */; };
+		01A1CD531B148F94004DDE6D /* TransferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD4E1B148F94004DDE6D /* TransferManager.swift */; };
+		01A1CD561B14931C004DDE6D /* HedgePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD551B14931C004DDE6D /* HedgePosition.swift */; };
+		01A1CD581B14934C004DDE6D /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD571B14934C004DDE6D /* Transfer.swift */; };
+		01A1CD5A1B14935C004DDE6D /* BankBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD591B14935C004DDE6D /* BankBalance.swift */; };
+		01A1CD5C1B149783004DDE6D /* Exposure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD5B1B149783004DDE6D /* Exposure.swift */; };
+		01A1CD5E1B149C2D004DDE6D /* AppSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01A1CD5D1B149C2D004DDE6D /* AppSettings.plist */; };
+		01A1CD641B149D5D004DDE6D /* ReturnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A1CD621B149D5D004DDE6D /* ReturnView.xib */; };
+		01A1CD651B149D5D004DDE6D /* ReturnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD631B149D5D004DDE6D /* ReturnView.swift */; };
+		01A1CD681B149D6B004DDE6D /* TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD661B149D6B004DDE6D /* TradeView.swift */; };
+		01A1CD691B149D6B004DDE6D /* TradeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A1CD671B149D6B004DDE6D /* TradeView.xib */; };
+		01A1CD6E1B149D8D004DDE6D /* ArbitrageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD6A1B149D8D004DDE6D /* ArbitrageDetailsViewController.swift */; };
+		01A1CD6F1B149D8D004DDE6D /* ArbitrageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD6B1B149D8D004DDE6D /* ArbitrageTableViewController.swift */; };
+		01A1CD701B149D8D004DDE6D /* ArbitrageHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD6C1B149D8D004DDE6D /* ArbitrageHeaderCell.swift */; };
+		01A1CD711B149D8D004DDE6D /* ArbitrageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD6D1B149D8D004DDE6D /* ArbitrageCell.swift */; };
+		01A1CD731B149E22004DDE6D /* Arbitrage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD721B149E22004DDE6D /* Arbitrage.swift */; };
+		01A1CD751B149EB3004DDE6D /* TradePF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD741B149EB3004DDE6D /* TradePF.swift */; };
+		01A1CD771B149F00004DDE6D /* ArbitrageReturn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD761B149F00004DDE6D /* ArbitrageReturn.swift */; };
+		01A1CD791B149F1E004DDE6D /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD781B149F1E004DDE6D /* Amount.swift */; };
+		01A1CD7C1B14A4F3004DDE6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1CD7B1B14A4F3004DDE6D /* InitialViewController.swift */; };
+		01A1CD7E1B14ACDB004DDE6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01A1CD7D1B14ACDB004DDE6D /* Main.storyboard */; };
 		01C7960D1B00C9DA00B92F45 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C7960C1B00C9DA00B92F45 /* Async.swift */; };
 		01C7960E1B00DF0200B92F45 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C7960C1B00C9DA00B92F45 /* Async.swift */; };
+		01C796111B01ABFB00B92F45 /* AssetExchangerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C796101B01ABFB00B92F45 /* AssetExchangerTests.swift */; };
+		01C796141B02C87D00B92F45 /* instrumentsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C796131B02C87D00B92F45 /* instrumentsConfig.swift */; };
+		01C796151B02CB1F00B92F45 /* instrumentsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C796131B02C87D00B92F45 /* instrumentsConfig.swift */; };
+		01C796171B02E2D900B92F45 /* ExchangeBalancesTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C796161B02E2D900B92F45 /* ExchangeBalancesTotalTableViewCell.swift */; };
+		01C796191B02FB0F00B92F45 /* exchangesConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C796181B02FB0F00B92F45 /* exchangesConfig.swift */; };
+		01C7961B1B02FB6100B92F45 /* exchangesConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C796181B02FB0F00B92F45 /* exchangesConfig.swift */; };
+		01C7961F1B042E5A00B92F45 /* BTCChinaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C7961E1B042E5A00B92F45 /* BTCChinaRouter.swift */; };
+		01C796211B04529F00B92F45 /* BTCChina.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C796201B04529F00B92F45 /* BTCChina.swift */; };
+		01C796221B0454BE00B92F45 /* BTCChina.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C796201B04529F00B92F45 /* BTCChina.swift */; };
+		01C796231B0454BE00B92F45 /* BTCChinaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C7961E1B042E5A00B92F45 /* BTCChinaRouter.swift */; };
 		01EB75021AFCE65B004E248F /* IndependentReserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EB75011AFCE65B004E248F /* IndependentReserve.swift */; };
 		01EB75031AFCEE35004E248F /* IndependentReserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EB75011AFCE65B004E248F /* IndependentReserve.swift */; };
 		01EB75041AFCEEEE004E248F /* IndependentReserveRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B48C1AFC947E002142FB /* IndependentReserveRouter.swift */; };
@@ -107,15 +136,14 @@
 		010677991AFAE366008F1E67 /* Bitfinex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bitfinex.swift; sourceTree = "<group>"; };
 		0129D17D1AF22BD600749867 /* networking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = networking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0129D1811AF22BD600749867 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0129D1821AF22BD600749867 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0129D1871AF22BD600749867 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0129D1891AF22BD600749867 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0129D1821AF22BD600749867 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = networking/AppDelegate.swift; sourceTree = "<group>"; };
+		0129D1891AF22BD600749867 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = networking/Images.xcassets; sourceTree = "<group>"; };
 		0129D18C1AF22BD600749867 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0129D1921AF22BD600749867 /* networkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = networkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0129D1971AF22BD600749867 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0129D1981AF22BD600749867 /* ExchangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTests.swift; sourceTree = "<group>"; };
 		0129D1A31AF232AE00749867 /* ExchangeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeManager.swift; sourceTree = "<group>"; };
-		0129D1A61AF2333E00749867 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		0129D1A61AF2333E00749867 /* ABTradingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABTradingError.swift; sourceTree = "<group>"; };
 		0129D1A71AF2333E00749867 /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
 		0129D1A81AF2333E00749867 /* Ticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
 		0129D1A91AF2333E00749867 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -129,7 +157,6 @@
 		0129D1B11AF2333E00749867 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		0129D1B31AF2333E00749867 /* OrderBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderBook.swift; sourceTree = "<group>"; };
 		0129D1B41AF2333E00749867 /* OrderAbstract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderAbstract.swift; sourceTree = "<group>"; };
-		013D74351AF3003B00232673 /* ExchangeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeDelegate.swift; sourceTree = "<group>"; };
 		013D74391AF303AB00232673 /* BTCMarkets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCMarkets.swift; sourceTree = "<group>"; };
 		013D743D1AF337F400232673 /* ExchangeAbstract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeAbstract.swift; sourceTree = "<group>"; };
 		013D74B81AF5E5FA00232673 /* BTCMarketsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCMarketsRouter.swift; sourceTree = "<group>"; };
@@ -139,17 +166,46 @@
 		013D75231AF7625A00232673 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		013D75251AF797B300232673 /* module.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = module.map; path = CommonCrypto/module.map; sourceTree = "<group>"; };
 		013D75281AF7A56200232673 /* HMACAAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMACAAlgorithm.swift; sourceTree = "<group>"; };
-		0140B4811AFC44AC002142FB /* AbstractExchangeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractExchangeRouter.swift; sourceTree = "<group>"; };
 		0140B4841AFC5E63002142FB /* ExchangeBalancesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeBalancesTableViewController.swift; sourceTree = "<group>"; };
 		0140B4861AFC684A002142FB /* ExchangeBalancesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeBalancesTableViewCell.swift; sourceTree = "<group>"; };
 		0140B4881AFC6B93002142FB /* ExchangeBalancesHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeBalancesHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		0140B48A1AFC765F002142FB /* ExchangeManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeManagerTests.swift; sourceTree = "<group>"; };
 		0140B48C1AFC947E002142FB /* IndependentReserveRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndependentReserveRouter.swift; sourceTree = "<group>"; };
+		014A0F3F1B0608EE0001E385 /* AsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncTests.swift; sourceTree = "<group>"; };
 		016EA84F1AF867C400940CB6 /* BinaryEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryEncoding.swift; sourceTree = "<group>"; };
 		016EA8511AF867E700940CB6 /* HMAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMAC.swift; sourceTree = "<group>"; };
 		016EA8541AF894F000940CB6 /* BinaryEncodingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryEncodingTests.swift; sourceTree = "<group>"; };
 		016EA8581AF8ACA700940CB6 /* HMACTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMACTests.swift; sourceTree = "<group>"; };
+		01A1CD4A1B148F94004DDE6D /* ExposureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExposureManager.swift; sourceTree = "<group>"; };
+		01A1CD4B1B148F94004DDE6D /* BankBalanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankBalanceManager.swift; sourceTree = "<group>"; };
+		01A1CD4D1B148F94004DDE6D /* HedgePositionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HedgePositionManager.swift; sourceTree = "<group>"; };
+		01A1CD4E1B148F94004DDE6D /* TransferManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferManager.swift; sourceTree = "<group>"; };
+		01A1CD551B14931C004DDE6D /* HedgePosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HedgePosition.swift; sourceTree = "<group>"; };
+		01A1CD571B14934C004DDE6D /* Transfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
+		01A1CD591B14935C004DDE6D /* BankBalance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankBalance.swift; sourceTree = "<group>"; };
+		01A1CD5B1B149783004DDE6D /* Exposure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exposure.swift; sourceTree = "<group>"; };
+		01A1CD5D1B149C2D004DDE6D /* AppSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppSettings.plist; sourceTree = "<group>"; };
+		01A1CD621B149D5D004DDE6D /* ReturnView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReturnView.xib; sourceTree = "<group>"; };
+		01A1CD631B149D5D004DDE6D /* ReturnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnView.swift; sourceTree = "<group>"; };
+		01A1CD661B149D6B004DDE6D /* TradeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradeView.swift; sourceTree = "<group>"; };
+		01A1CD671B149D6B004DDE6D /* TradeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TradeView.xib; sourceTree = "<group>"; };
+		01A1CD6A1B149D8D004DDE6D /* ArbitrageDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArbitrageDetailsViewController.swift; sourceTree = "<group>"; };
+		01A1CD6B1B149D8D004DDE6D /* ArbitrageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArbitrageTableViewController.swift; sourceTree = "<group>"; };
+		01A1CD6C1B149D8D004DDE6D /* ArbitrageHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArbitrageHeaderCell.swift; sourceTree = "<group>"; };
+		01A1CD6D1B149D8D004DDE6D /* ArbitrageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArbitrageCell.swift; sourceTree = "<group>"; };
+		01A1CD721B149E22004DDE6D /* Arbitrage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arbitrage.swift; sourceTree = "<group>"; };
+		01A1CD741B149EB3004DDE6D /* TradePF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradePF.swift; sourceTree = "<group>"; };
+		01A1CD761B149F00004DDE6D /* ArbitrageReturn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArbitrageReturn.swift; sourceTree = "<group>"; };
+		01A1CD781B149F1E004DDE6D /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
+		01A1CD7B1B14A4F3004DDE6D /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		01A1CD7D1B14ACDB004DDE6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		01C7960C1B00C9DA00B92F45 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		01C796101B01ABFB00B92F45 /* AssetExchangerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetExchangerTests.swift; sourceTree = "<group>"; };
+		01C796131B02C87D00B92F45 /* instrumentsConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = instrumentsConfig.swift; sourceTree = "<group>"; };
+		01C796161B02E2D900B92F45 /* ExchangeBalancesTotalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeBalancesTotalTableViewCell.swift; sourceTree = "<group>"; };
+		01C796181B02FB0F00B92F45 /* exchangesConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = exchangesConfig.swift; path = networking/exchangesConfig.swift; sourceTree = "<group>"; };
+		01C7961E1B042E5A00B92F45 /* BTCChinaRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCChinaRouter.swift; sourceTree = "<group>"; };
+		01C796201B04529F00B92F45 /* BTCChina.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCChina.swift; sourceTree = "<group>"; };
 		01EB75011AFCE65B004E248F /* IndependentReserve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndependentReserve.swift; sourceTree = "<group>"; };
 		01EB75071AFEC1BE004E248F /* Oanda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Oanda.swift; sourceTree = "<group>"; };
 		01EB75081AFEC1BE004E248F /* OandaRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OandaRouter.swift; sourceTree = "<group>"; };
@@ -186,10 +242,15 @@
 			children = (
 				01EB75131B00B425004E248F /* Async.playground */,
 				01C7960B1B00C9C400B92F45 /* Async */,
-				016EA84E1AF838FF00940CB6 /* Crypto */,
+				016EA84E1AF838FF00940CB6 /* HMAC */,
 				013D751D1AF7437900232673 /* Keychain */,
-				0129D1A51AF2331C00749867 /* TradingPlatform */,
-				0129D17F1AF22BD600749867 /* networking */,
+				0129D1A51AF2331C00749867 /* ABTrading */,
+				01C7961A1B02FB2100B92F45 /* config */,
+				01A1CD541B148FBA004DDE6D /* ParseObjects */,
+				01A1CD491B148F15004DDE6D /* ParseManagers */,
+				01A1CD7A1B14A2F7004DDE6D /* InitialViewController */,
+				01A1CD5F1B149D1E004DDE6D /* arbitrage */,
+				0129D17F1AF22BD600749867 /* ExchangeBalances */,
 				0129D1951AF22BD600749867 /* networkingTests */,
 				0129D17E1AF22BD600749867 /* Products */,
 				82E54D04E8EF361C76095809 /* Pods */,
@@ -206,36 +267,36 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0129D17F1AF22BD600749867 /* networking */ = {
+		0129D17F1AF22BD600749867 /* ExchangeBalances */ = {
 			isa = PBXGroup;
 			children = (
-				0129D1821AF22BD600749867 /* AppDelegate.swift */,
 				0140B4841AFC5E63002142FB /* ExchangeBalancesTableViewController.swift */,
+				01C796161B02E2D900B92F45 /* ExchangeBalancesTotalTableViewCell.swift */,
 				0140B4881AFC6B93002142FB /* ExchangeBalancesHeaderTableViewCell.swift */,
 				0140B4861AFC684A002142FB /* ExchangeBalancesTableViewCell.swift */,
-				0129D1861AF22BD600749867 /* Main.storyboard */,
-				0129D1891AF22BD600749867 /* Images.xcassets */,
-				0129D18B1AF22BD600749867 /* LaunchScreen.xib */,
-				0129D1801AF22BD600749867 /* Supporting Files */,
 			);
+			name = ExchangeBalances;
 			path = networking;
 			sourceTree = "<group>";
 		};
 		0129D1801AF22BD600749867 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				01A1CD5D1B149C2D004DDE6D /* AppSettings.plist */,
 				0129D1811AF22BD600749867 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			path = networking;
 			sourceTree = "<group>";
 		};
 		0129D1951AF22BD600749867 /* networkingTests */ = {
 			isa = PBXGroup;
 			children = (
-				016EA8531AF894D600940CB6 /* Crypto */,
-				0129D1981AF22BD600749867 /* ExchangeTests.swift */,
-				0140B48A1AFC765F002142FB /* ExchangeManagerTests.swift */,
-				013D75201AF7441900232673 /* KeychainTest.swift */,
+				014A0F411B0609070001E385 /* Async */,
+				01C7961D1B02FD0300B92F45 /* Exchanges */,
+				01C7960F1B01ABC500B92F45 /* AssetExchanger */,
+				016EA8531AF894D600940CB6 /* HMAC */,
+				01C7961C1B02FCEA00B92F45 /* Keychain */,
 				0129D1961AF22BD600749867 /* Supporting Files */,
 			);
 			path = networkingTests;
@@ -249,10 +310,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0129D1A51AF2331C00749867 /* TradingPlatform */ = {
+		0129D1A51AF2331C00749867 /* ABTrading */ = {
 			isa = PBXGroup;
 			children = (
-				0129D1A61AF2333E00749867 /* Errors.swift */,
+				0129D1A61AF2333E00749867 /* ABTradingError.swift */,
 				0129D1AD1AF2333E00749867 /* Instrument.swift */,
 				010677961AFA3E1A008F1E67 /* CurrencyManager.swift */,
 				0129D1AF1AF2333E00749867 /* Currency.swift */,
@@ -266,18 +327,18 @@
 				0129D1AC1AF2333E00749867 /* ApiKey.swift */,
 				0129D1B11AF2333E00749867 /* Account.swift */,
 				0129D1B01AF2333E00749867 /* Balance.swift */,
+				01A1CD5B1B149783004DDE6D /* Exposure.swift */,
+				01A1CD761B149F00004DDE6D /* ArbitrageReturn.swift */,
 				01EB750F1B004AD5004E248F /* AssetExchanger */,
 				013D74381AF3035800232673 /* exchanges */,
 			);
-			name = TradingPlatform;
+			name = ABTrading;
 			sourceTree = "<group>";
 		};
 		013D74381AF3035800232673 /* exchanges */ = {
 			isa = PBXGroup;
 			children = (
 				0129D1AE1AF2333E00749867 /* Exchange.swift */,
-				013D74351AF3003B00232673 /* ExchangeDelegate.swift */,
-				0140B4811AFC44AC002142FB /* AbstractExchangeRouter.swift */,
 				013D743D1AF337F400232673 /* ExchangeAbstract.swift */,
 				0129D1A31AF232AE00749867 /* ExchangeManager.swift */,
 				01EB75071AFEC1BE004E248F /* Oanda.swift */,
@@ -288,6 +349,8 @@
 				013D74B81AF5E5FA00232673 /* BTCMarketsRouter.swift */,
 				01EB75011AFCE65B004E248F /* IndependentReserve.swift */,
 				0140B48C1AFC947E002142FB /* IndependentReserveRouter.swift */,
+				01C796201B04529F00B92F45 /* BTCChina.swift */,
+				01C7961E1B042E5A00B92F45 /* BTCChinaRouter.swift */,
 			);
 			name = exchanges;
 			sourceTree = "<group>";
@@ -300,7 +363,15 @@
 			name = Keychain;
 			sourceTree = "<group>";
 		};
-		016EA84E1AF838FF00940CB6 /* Crypto */ = {
+		014A0F411B0609070001E385 /* Async */ = {
+			isa = PBXGroup;
+			children = (
+				014A0F3F1B0608EE0001E385 /* AsyncTests.swift */,
+			);
+			name = Async;
+			sourceTree = "<group>";
+		};
+		016EA84E1AF838FF00940CB6 /* HMAC */ = {
 			isa = PBXGroup;
 			children = (
 				016EA84F1AF867C400940CB6 /* BinaryEncoding.swift */,
@@ -308,16 +379,84 @@
 				016EA8511AF867E700940CB6 /* HMAC.swift */,
 				013D75251AF797B300232673 /* module.map */,
 			);
-			name = Crypto;
+			name = HMAC;
 			sourceTree = "<group>";
 		};
-		016EA8531AF894D600940CB6 /* Crypto */ = {
+		016EA8531AF894D600940CB6 /* HMAC */ = {
 			isa = PBXGroup;
 			children = (
 				016EA8541AF894F000940CB6 /* BinaryEncodingTests.swift */,
 				016EA8581AF8ACA700940CB6 /* HMACTests.swift */,
 			);
-			name = Crypto;
+			name = HMAC;
+			sourceTree = "<group>";
+		};
+		01A1CD491B148F15004DDE6D /* ParseManagers */ = {
+			isa = PBXGroup;
+			children = (
+				01A1CD4A1B148F94004DDE6D /* ExposureManager.swift */,
+				01A1CD4B1B148F94004DDE6D /* BankBalanceManager.swift */,
+				01A1CD4D1B148F94004DDE6D /* HedgePositionManager.swift */,
+				01A1CD4E1B148F94004DDE6D /* TransferManager.swift */,
+			);
+			name = ParseManagers;
+			sourceTree = "<group>";
+		};
+		01A1CD541B148FBA004DDE6D /* ParseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				01A1CD781B149F1E004DDE6D /* Amount.swift */,
+				01A1CD721B149E22004DDE6D /* Arbitrage.swift */,
+				01A1CD741B149EB3004DDE6D /* TradePF.swift */,
+				01A1CD591B14935C004DDE6D /* BankBalance.swift */,
+				01A1CD551B14931C004DDE6D /* HedgePosition.swift */,
+				01A1CD571B14934C004DDE6D /* Transfer.swift */,
+			);
+			name = ParseObjects;
+			sourceTree = "<group>";
+		};
+		01A1CD5F1B149D1E004DDE6D /* arbitrage */ = {
+			isa = PBXGroup;
+			children = (
+				01A1CD6A1B149D8D004DDE6D /* ArbitrageDetailsViewController.swift */,
+				01A1CD6B1B149D8D004DDE6D /* ArbitrageTableViewController.swift */,
+				01A1CD6C1B149D8D004DDE6D /* ArbitrageHeaderCell.swift */,
+				01A1CD6D1B149D8D004DDE6D /* ArbitrageCell.swift */,
+				01A1CD611B149D4D004DDE6D /* TradeView */,
+				01A1CD601B149D33004DDE6D /* ReturnView */,
+			);
+			name = arbitrage;
+			sourceTree = "<group>";
+		};
+		01A1CD601B149D33004DDE6D /* ReturnView */ = {
+			isa = PBXGroup;
+			children = (
+				01A1CD621B149D5D004DDE6D /* ReturnView.xib */,
+				01A1CD631B149D5D004DDE6D /* ReturnView.swift */,
+			);
+			name = ReturnView;
+			sourceTree = "<group>";
+		};
+		01A1CD611B149D4D004DDE6D /* TradeView */ = {
+			isa = PBXGroup;
+			children = (
+				01A1CD661B149D6B004DDE6D /* TradeView.swift */,
+				01A1CD671B149D6B004DDE6D /* TradeView.xib */,
+			);
+			name = TradeView;
+			sourceTree = "<group>";
+		};
+		01A1CD7A1B14A2F7004DDE6D /* InitialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0129D1821AF22BD600749867 /* AppDelegate.swift */,
+				01A1CD7D1B14ACDB004DDE6D /* Main.storyboard */,
+				01A1CD7B1B14A4F3004DDE6D /* InitialViewController.swift */,
+				0129D18B1AF22BD600749867 /* LaunchScreen.xib */,
+				0129D1891AF22BD600749867 /* Images.xcassets */,
+				0129D1801AF22BD600749867 /* Supporting Files */,
+			);
+			name = InitialViewController;
 			sourceTree = "<group>";
 		};
 		01C7960B1B00C9C400B92F45 /* Async */ = {
@@ -326,6 +465,40 @@
 				01C7960C1B00C9DA00B92F45 /* Async.swift */,
 			);
 			name = Async;
+			sourceTree = "<group>";
+		};
+		01C7960F1B01ABC500B92F45 /* AssetExchanger */ = {
+			isa = PBXGroup;
+			children = (
+				01C796101B01ABFB00B92F45 /* AssetExchangerTests.swift */,
+			);
+			name = AssetExchanger;
+			sourceTree = "<group>";
+		};
+		01C7961A1B02FB2100B92F45 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				01C796131B02C87D00B92F45 /* instrumentsConfig.swift */,
+				01C796181B02FB0F00B92F45 /* exchangesConfig.swift */,
+			);
+			name = config;
+			sourceTree = "<group>";
+		};
+		01C7961C1B02FCEA00B92F45 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				013D75201AF7441900232673 /* KeychainTest.swift */,
+			);
+			name = Keychain;
+			sourceTree = "<group>";
+		};
+		01C7961D1B02FD0300B92F45 /* Exchanges */ = {
+			isa = PBXGroup;
+			children = (
+				0129D1981AF22BD600749867 /* ExchangeTests.swift */,
+				0140B48A1AFC765F002142FB /* ExchangeManagerTests.swift */,
+			);
+			name = Exchanges;
 			sourceTree = "<group>";
 		};
 		01EB750F1B004AD5004E248F /* AssetExchanger */ = {
@@ -367,6 +540,7 @@
 				0129D17B1AF22BD600749867 /* Resources */,
 				EFF66D5EC02D4E89CD62CE71 /* Embed Pods Frameworks */,
 				1D6A18EEE431201226DF2E09 /* Copy Pods Resources */,
+				01C796121B02091A00B92F45 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -437,7 +611,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0129D1881AF22BD600749867 /* Main.storyboard in Resources */,
+				01A1CD641B149D5D004DDE6D /* ReturnView.xib in Resources */,
+				01A1CD5E1B149C2D004DDE6D /* AppSettings.plist in Resources */,
+				01A1CD691B149D6B004DDE6D /* TradeView.xib in Resources */,
+				01A1CD7E1B14ACDB004DDE6D /* Main.storyboard in Resources */,
 				0129D18D1AF22BD600749867 /* LaunchScreen.xib in Resources */,
 				0129D18A1AF22BD600749867 /* Images.xcassets in Resources */,
 			);
@@ -453,6 +630,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		01C796121B02091A00B92F45 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
+		};
 		1D6A18EEE431201226DF2E09 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -505,43 +696,65 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01A1CD4F1B148F94004DDE6D /* ExposureManager.swift in Sources */,
 				016EA8501AF867C400940CB6 /* BinaryEncoding.swift in Sources */,
 				0129D1BA1AF2333E00749867 /* Asset.swift in Sources */,
+				01A1CD5C1B149783004DDE6D /* Exposure.swift in Sources */,
 				010677971AFA3E1A008F1E67 /* CurrencyManager.swift in Sources */,
+				01A1CD791B149F1E004DDE6D /* Amount.swift in Sources */,
 				0129D1C21AF2333E00749867 /* OrderBook.swift in Sources */,
+				01A1CD681B149D6B004DDE6D /* TradeView.swift in Sources */,
+				01C7961F1B042E5A00B92F45 /* BTCChinaRouter.swift in Sources */,
 				013D75271AF79BD800232673 /* module.map in Sources */,
 				0140B4871AFC684A002142FB /* ExchangeBalancesTableViewCell.swift in Sources */,
+				01C796141B02C87D00B92F45 /* instrumentsConfig.swift in Sources */,
 				0129D1BB1AF2333E00749867 /* ApiKey.swift in Sources */,
 				013D752A1AF7ACF300232673 /* HMACAAlgorithm.swift in Sources */,
 				0129D1B61AF2333E00749867 /* Trade.swift in Sources */,
+				01A1CD7C1B14A4F3004DDE6D /* InitialViewController.swift in Sources */,
 				0106779A1AFAE366008F1E67 /* Bitfinex.swift in Sources */,
 				0129D1B71AF2333E00749867 /* Ticker.swift in Sources */,
 				0140B48D1AFC947E002142FB /* IndependentReserveRouter.swift in Sources */,
 				013D751F1AF743C000232673 /* Keychain.swift in Sources */,
+				01A1CD561B14931C004DDE6D /* HedgePosition.swift in Sources */,
 				013D743A1AF303AB00232673 /* BTCMarkets.swift in Sources */,
 				01C7960D1B00C9DA00B92F45 /* Async.swift in Sources */,
-				0129D1B51AF2333E00749867 /* Errors.swift in Sources */,
+				01A1CD6F1B149D8D004DDE6D /* ArbitrageTableViewController.swift in Sources */,
+				0129D1B51AF2333E00749867 /* ABTradingError.swift in Sources */,
 				0129D1C01AF2333E00749867 /* Account.swift in Sources */,
+				01A1CD701B149D8D004DDE6D /* ArbitrageHeaderCell.swift in Sources */,
+				01A1CD651B149D5D004DDE6D /* ReturnView.swift in Sources */,
 				01EB75111B004AE7004E248F /* AssetExchanger.swift in Sources */,
 				01EB75021AFCE65B004E248F /* IndependentReserve.swift in Sources */,
-				0140B4821AFC44AC002142FB /* AbstractExchangeRouter.swift in Sources */,
 				0129D1B91AF2333E00749867 /* Market.swift in Sources */,
+				01A1CD521B148F94004DDE6D /* HedgePositionManager.swift in Sources */,
 				0129D1C31AF2333E00749867 /* OrderAbstract.swift in Sources */,
 				01EB750B1AFEC1BE004E248F /* Oanda.swift in Sources */,
 				0129D1A41AF232AE00749867 /* ExchangeManager.swift in Sources */,
+				01C796211B04529F00B92F45 /* BTCChina.swift in Sources */,
 				013D74BB1AF6562C00232673 /* BitfinexRouter.swift in Sources */,
+				01A1CD5A1B14935C004DDE6D /* BankBalance.swift in Sources */,
 				0129D1BE1AF2333E00749867 /* Currency.swift in Sources */,
 				013D743E1AF337F400232673 /* ExchangeAbstract.swift in Sources */,
+				01A1CD531B148F94004DDE6D /* TransferManager.swift in Sources */,
+				01A1CD751B149EB3004DDE6D /* TradePF.swift in Sources */,
 				0129D1BD1AF2333E00749867 /* Exchange.swift in Sources */,
+				01A1CD771B149F00004DDE6D /* ArbitrageReturn.swift in Sources */,
 				0129D1BC1AF2333E00749867 /* Instrument.swift in Sources */,
 				0140B4891AFC6B93002142FB /* ExchangeBalancesHeaderTableViewCell.swift in Sources */,
+				01A1CD581B14934C004DDE6D /* Transfer.swift in Sources */,
+				01A1CD731B149E22004DDE6D /* Arbitrage.swift in Sources */,
 				0129D1831AF22BD600749867 /* AppDelegate.swift in Sources */,
+				01C796191B02FB0F00B92F45 /* exchangesConfig.swift in Sources */,
 				0129D1BF1AF2333E00749867 /* Balance.swift in Sources */,
 				013D74B91AF5E5FA00232673 /* BTCMarketsRouter.swift in Sources */,
+				01A1CD6E1B149D8D004DDE6D /* ArbitrageDetailsViewController.swift in Sources */,
 				0129D1B81AF2333E00749867 /* Order.swift in Sources */,
+				01A1CD711B149D8D004DDE6D /* ArbitrageCell.swift in Sources */,
+				01A1CD501B148F94004DDE6D /* BankBalanceManager.swift in Sources */,
 				01EB750D1AFEC1BE004E248F /* OandaRouter.swift in Sources */,
-				013D74361AF3003B00232673 /* ExchangeDelegate.swift in Sources */,
 				016EA8521AF867E700940CB6 /* HMAC.swift in Sources */,
+				01C796171B02E2D900B92F45 /* ExchangeBalancesTotalTableViewCell.swift in Sources */,
 				0140B4851AFC5E63002142FB /* ExchangeBalancesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,7 +766,9 @@
 				01EB75121B004AE7004E248F /* AssetExchanger.swift in Sources */,
 				0106779B1AFAEE3F008F1E67 /* Bitfinex.swift in Sources */,
 				013D75291AF7A56200232673 /* HMACAAlgorithm.swift in Sources */,
+				01C796151B02CB1F00B92F45 /* instrumentsConfig.swift in Sources */,
 				013D75141AF718EF00232673 /* Trade.swift in Sources */,
+				01C796111B01ABFB00B92F45 /* AssetExchangerTests.swift in Sources */,
 				013D75171AF718EF00232673 /* OrderBook.swift in Sources */,
 				013D75261AF797B300232673 /* module.map in Sources */,
 				013D75101AF718EF00232673 /* Instrument.swift in Sources */,
@@ -565,25 +780,27 @@
 				016EA8551AF894F000940CB6 /* BinaryEncodingTests.swift in Sources */,
 				0140B48B1AFC765F002142FB /* ExchangeManagerTests.swift in Sources */,
 				013D751A1AF718EF00232673 /* Account.swift in Sources */,
-				013D75091AF718EF00232673 /* ExchangeDelegate.swift in Sources */,
 				013D750B1AF718EF00232673 /* ExchangeManager.swift in Sources */,
 				01EB75031AFCEE35004E248F /* IndependentReserve.swift in Sources */,
 				013D750C1AF718EF00232673 /* BTCMarkets.swift in Sources */,
-				0140B4831AFC44F2002142FB /* AbstractExchangeRouter.swift in Sources */,
 				013D75121AF718EF00232673 /* Asset.swift in Sources */,
+				014A0F401B0608EE0001E385 /* AsyncTests.swift in Sources */,
 				01EB75041AFCEEEE004E248F /* IndependentReserveRouter.swift in Sources */,
 				013D75131AF718EF00232673 /* OrderAbstract.swift in Sources */,
 				01EB750E1AFEC1BE004E248F /* OandaRouter.swift in Sources */,
 				013D75211AF7441900232673 /* KeychainTest.swift in Sources */,
+				01C796221B0454BE00B92F45 /* BTCChina.swift in Sources */,
 				01C7960E1B00DF0200B92F45 /* Async.swift in Sources */,
 				013D75161AF718EF00232673 /* Ticker.swift in Sources */,
 				013D75111AF718EF00232673 /* Currency.swift in Sources */,
 				013D750D1AF718EF00232673 /* BTCMarketsRouter.swift in Sources */,
 				013D75081AF718EF00232673 /* Exchange.swift in Sources */,
 				010677981AFA43B7008F1E67 /* CurrencyManager.swift in Sources */,
+				01C796231B0454BE00B92F45 /* BTCChinaRouter.swift in Sources */,
 				013D75151AF718EF00232673 /* Order.swift in Sources */,
 				013D75191AF718EF00232673 /* ApiKey.swift in Sources */,
-				013D750F1AF718EF00232673 /* Errors.swift in Sources */,
+				013D750F1AF718EF00232673 /* ABTradingError.swift in Sources */,
+				01C7961B1B02FB6100B92F45 /* exchangesConfig.swift in Sources */,
 				016EA8591AF8ACA700940CB6 /* HMACTests.swift in Sources */,
 				0129D1991AF22BD600749867 /* ExchangeTests.swift in Sources */,
 				01EB750C1AFEC1BE004E248F /* Oanda.swift in Sources */,
@@ -603,20 +820,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0129D1861AF22BD600749867 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0129D1871AF22BD600749867 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0129D18B1AF22BD600749867 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0129D18C1AF22BD600749867 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = networking;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -71,13 +71,31 @@ class KeychainTests: XCTestCase
     {
         let apiKey = ""
         
-        let apiKeyWasSet: Bool = Keychain.set(oandaPractice.keychainKeyForApiKey, value: apiKey)
+        let apiKeyWasSet: Bool = Keychain.set(oanda.keychainKeyForApiKey, value: apiKey)
         
         XCTAssertTrue(apiKeyWasSet, "set api key in Keychain")
         
-        let getApiKey = Keychain.get(oandaPractice.keychainKeyForApiKey)
+        let getApiKey = Keychain.get(oanda.keychainKeyForApiKey)
         
         XCTAssertEqual(getApiKey!, apiKey, "retrieved api key value from keychain matches raw string")
+    }
+    
+    func xxxtestAddBTCChinaApiKeysToKeychain()
+    {
+        let apiKey = ""
+        let apiSecret = ""
+        
+        let apiKeyWasSet: Bool = Keychain.set(btcChina.keychainKeyForApiKey, value: apiKey)
+        let apiSecretWasSet: Bool = Keychain.set(btcChina.keychainKeyForApiSecret, value: apiSecret)
+        
+        XCTAssertTrue(apiKeyWasSet, "set api key in Keychain")
+        XCTAssertTrue(apiSecretWasSet, "set api secret in Keychain")
+        
+        let getApiKey = Keychain.get(btcChina.keychainKeyForApiKey)
+        let getApiSecret = Keychain.get(btcChina.keychainKeyForApiSecret)
+        
+        XCTAssertEqual(getApiKey!, apiKey, "retrieved api key value from keychain matches raw string")
+        XCTAssertEqual(getApiSecret!, apiSecret, "retrieved api secret value from keychain matches raw string")
     }
     
     func testAddDummayKeysToKeychain()

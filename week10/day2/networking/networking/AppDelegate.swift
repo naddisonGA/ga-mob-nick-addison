@@ -8,6 +8,8 @@
 
 import UIKit
 import XCGLogger
+import Parse
+import Bolts
 
 let log = XCGLogger.defaultInstance()
 
@@ -16,9 +18,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    /// initialises the Parse framework.
+    ///
+    /// 1. reads the ParseApplicationId and ParseClientKey user defaults from the AppSettings plist
+    /// 2. registers the classes that subclass PFObject with the Parse framework
+    func initializeParse(didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)
+    {
+        Parse.enableLocalDatastore()
+        
+        let path = NSBundle.mainBundle().pathForResource("AppSettings", ofType: "plist")
+        
+        if let parseApplicationId: String = NSDictionary(contentsOfFile: path!)?.objectForKey("ParseApplicationId") as? String,
+            let parseClientKey: String = NSDictionary(contentsOfFile: path!)?.objectForKey("ParseClientKey") as? String
+        {
+            log.debug("Parse Application Id \(parseApplicationId) and client key \(parseClientKey)")
+            
+            // Initialize Parse.
+            Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
+            
+            // [Optional] Track statistics around application opens.
+            PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+            
+            // register the classes that subclass PFObject
+            BankBalance.registerSubclass()
+            Transfer.registerSubclass()
+            HedgePosition.registerSubclass()
+            Arbitrage.registerSubclass()
+            TradePF.registerSubclass()
+        }
+        else
+        {
+            log.error("Could not read Parse Application Id and/or Client Key from AppSettings plist")
+        }
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        log.setup(logLevel: .Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil, fileLogLevel: .None)
+        
+        AssetExchanger.sharedAssetExchanger.instrumentToExchangeMap = defaultInstrumentToExchangeMap
+        AssetExchanger.sharedAssetExchanger.crossRatesMap = defaultCrossRatesMap
+        ExchangeManager.sharedExchangeManager.exchanges = defaultExchangeManagerExchanges
+        CurrencyManager.sharedCurrencyManager.currencies = defaultCurrencyManagerCurrencies
+        
+        initializeParse(didFinishLaunchingWithOptions: launchOptions)
+        
         return true
     }
 

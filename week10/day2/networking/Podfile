@@ -8,5 +8,7 @@ pod 'SwiftyJSON', '~> 2.2'
 pod 'Dollar', '~> 3.0'
 pod 'Cent', '~> 3.0'
 pod 'TaskQueue', '~> 0.9'
+pod 'Parse', '~> 1.7'
+pod 'ParseUI', '~> 1.1'
 
 link_with 'networking', 'networkingTests'

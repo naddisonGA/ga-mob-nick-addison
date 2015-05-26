@@ -72,25 +72,28 @@ public protocol Exchange
     
     func setKeyOnRouter(apiKey: String, apiSecret: String?)
     
-    //MARK:- public methods
+    //MARK:- public asynchronous methods
     
-    func getTicker(instrument: Instrument, callback: (ticker: Ticker?, error: NSError?) -> () )
+    func getTicker(instrument: Instrument, completionHandler: (ticker: Ticker?, error: NSError?) -> () )
     func getTickers(instruments: [Instrument], completionHandler: (tickers: [Ticker]?, error: NSError?) -> () )
     
-    func getOrderBook(instrument: Instrument, callback: (orderBook: OrderBook?, error: NSError?) -> () )
+    func getOrderBook(instrument: Instrument, completionHandler: (orderBook: OrderBook?, error: NSError?) -> () )
     func getOrderBooks(instruments: [Instrument], completionHandler: (orderBooks: [OrderBook]?, error: NSError?) -> () )
     
-    func getTrades(instrument: Instrument, callback: (trades: [Trade]?, error: NSError?) -> () )
+    func getTrades(instrument: Instrument, completionHandler: (trades: [Trade]?, error: NSError?) -> () )
     
-    //MARK:- private methods
+    //MARK:- private asynchronous methods
     
-    func getBalances(callback: (balances: [Balance]?, error: NSError?) -> () )
+    func getBalances(completionHandler: (balances: [Balance]?, error: NSError?) -> () )
     
-    func addOrder(newOrder: Order, callback: (exchangeOrder: Order?, error: NSError?) -> () )
-    func cancelOrder(oldOrder: Order, callback: (error: NSError?) -> () )
+    func addOrder(newOrder: Order, completionHandler: (exchangeOrder: Order?, error: NSError?) -> () )
+    func cancelOrder(oldOrder: Order, completionHandler: (error: NSError?) -> () )
     
-    func getOrder(exchangeId: String, callback: (exchangeOrder: Order?, error: NSError?) -> () )
-    func getOpenOrders(instrument: Instrument, callback: (exchangeOrder: Order?, error: NSError?) -> () )
+    func getOrder(exchangeId: String, completionHandler: (exchangeOrder: Order?, error: NSError?) -> () )
+    func getOpenOrders(instrument: Instrument, completionHandler: (exchangeOrder: Order?, error: NSError?) -> () )
     
-    // optional func replaceOrder(oldOrder: Order, newOrder: Order, callback: (exchangeOrder: Order?, error: NSError?) -> () )
+    // func replaceOrder(oldOrder: Order, newOrder: Order, completionHandler: (exchangeOrder: Order?, error: NSError?) -> () )
+    
+    //MARK:- synchronous helper methods
+    func summedBalances(convertedTo: Asset) -> (Balance?, NSError?)
 }
